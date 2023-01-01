@@ -1,0 +1,158 @@
+<div class=" Top_height bg-white ">
+
+  <div class="small-screen  border border-5  position-relative m-auto text-center   ">
+    <div style="background:#eeeeee ">
+
+      <div class="menu-small w-100 " *ngIf="active_house">
+        <div (click)="search_house()" [style.background]="search_house_color"  class="option2  center">{{'main.exhibition'|translate}} </div>
+        <div (click)="search_requests_fun()" [style.background]="search_requests_color" class="option2  center">{{'main.Inspection requests'|translate}} </div>
+      </div>
+
+
+      <div class="menu-small w-100 "  *ngIf="active_partner" >
+        <div  (click)="search_fnd()" [style.background]="search_fnd_color" class="option2  center">{{'main.Search'|translate}} </div>
+        <div  (click)="request_fnd()" [style.background]="request_fnd_color" class="option2  center"> {{'main.Friendship requests'|translate}}</div>
+        <div  (click)="request_fnd()" [style.background]="" class="option2  center">{{'main.Invite a friend'|translate}} </div>
+      </div>
+
+
+      <div class="menu-small w-100 "  *ngIf="active_option">
+        <div (click)="option_main()" [style.background]="option_main_color"  class="option2  center"> {{'main.Main'|translate}}</div>
+        <div (click)="option_subscribe()" [style.background]="option_subscribe_color" class="option2  center"> {{'main.Subscription'|translate}}</div>
+        <div (click)="option_more()" [style.background]="option_more_color" class="option2  center"> {{'main.More'|translate}}</div>
+      </div>
+
+
+      <div class="menu-small w-100 "  *ngIf="active_otherServies">
+        <div (click)="education_fun()" [style.background]="education_color" class="option2  center">{{'main.Education'|translate}} </div>
+        <div (click)="eating_fun()" [style.background]="eating_color" class="option2  center"> {{'main.Food'|translate}}</div>
+        <div (click)="cleaning_fun()" [style.background]="cleaning_color" class="option2  center"> {{'main.Cleanliness'|translate}}</div>
+      </div>
+
+
+      <div class="menu-small w-100 " *ngIf="active_profile">
+        <div (click)="profile_data_fun()" [style.background]="profile_data_color" class="option2   center"> {{'main.Personal data'|translate}} </div>
+        <div (click)="call_data_fun()" [style.background]="call_data_color" class="option2   center"> {{'main.Contact Data'|translate}}</div>
+        <div (click)="interests_fun()" [style.background]="interests_color" class="option2 animate__animated animate__slideInUp  center">{{'main.Interests'|translate}} </div>
+      </div>
+
+
+
+
+    </div>
+           <div class="outline_show_small overflow-auto mt-2  ">
+              <app-request [style.display]='request_show'></app-request>
+              <app-profile-onwer  *ngIf="active_profile" [profile_data]="profile_data" [interests]="interests" [call_data]="call_data"></app-profile-onwer>
+              <app-control-housing *ngIf="active_partner" [add_house]="add_house" [my_house]="my_house"></app-control-housing>
+              <app-services-owner></app-services-owner>
+              <app-add-housing  *ngIf="active_house" [requests]="requests" [new_ads]="new_ads" [my_ads]="my_ads"></app-add-housing>
+
+              <app-options *ngIf="active_option" [option_more]="more"  [option_subscribers]="subscribers"  [option_main]="main"   ></app-options>
+          </div>
+
+
+
+
+
+
+    </div>
+
+
+  <div class="small-menu p-0 m-0 ">
+    <div (click)="activeProfile()" [style.background]="icon_profile_color" class="circle center p-2 align-items-center d-flex justify-content-center"><img class="pro_icon " [src]="url_profile" alt=""></div>
+    <div (click)="activeHouce()" [style.background]="icon_house_color" class="circle center p-2"><img class="pro_icon " [src]="url_house" alt=""></div>
+    <div (click)="activePartener()" [style.background]="icon_partner_color" class="circle center p-2"><img class="pro_icon " [src]="url_partner" alt=""></div>
+    <div (click)="activeOther()" [style.background]="icon_otherServies_color" class="circle center p-2"><img class="pro_icon " [src]="url_otherServies " alt=""></div>
+    <div (click)="activeOption()" [style.background]="icon_option_color" class="circle center p-2"><img class="pro_icon " [src]="url_option" alt=""></div>
+
+  </div>
+
+
+<div class="large_menu position-relative">
+    <div class="box_menu position-relative  " >
+       <div (click) ="activeProfile()"  class="position-absolute item_profile  w-100 mb-4  "  > <div class="icon_house" [class.raduis_reverse]="!langfun()" [style.background]="icon_profile_color"> <span> {{'owner.Profile'|translate}} </span><div class="icon_large" [class.leftToRight]="!langfun()" [style.background]="icon_profile_color_item" ><img [src]="url_profile"></div>  </div> </div>
+       <div (click) ="activeHouce()" class="position-absolute item_house  w-100 mb-4  "> <div class="icon_house" [class.raduis_reverse]="!langfun()" [style.background]="icon_house_color">  <span>  {{'owner.Advertising Management'|translate}}</span><div class="icon_large  " [class.leftToRight]="!langfun()" [style.background]="icon_house_color_item"><img [src]="url_house"></div>  </div> </div>
+       <div (click) ="activePartener()" class="position-absolute item_partner  w-100 mb-4  "> <div class="icon_house" [class.raduis_reverse]="!langfun()" [style.background]="icon_partner_color"> <span> {{'owner.Management of Residence'|translate}} </span><div class="icon_large  " [class.leftToRight]="!langfun()" [style.background]="icon_partner_color_item"><img [src]="url_partner"></div>  </div> </div>
+       <div (click) ="activeOther()" class="position-absolute item_other  w-100 mb-4  "> <div class="icon_house" [class.raduis_reverse]="!langfun()" [style.background]="icon_otherServies_color"> <span> {{'owner.Other services'|translate}} </span><div class="icon_large  " [class.leftToRight]="!langfun()" [style.background]="icon_otherServies_color_item"><img [src]="url_otherServies"></div>  </div> </div>
+       <div (click) ="activeOption()" class="position-absolute item_option  w-100 "> <div class="icon_house" [class.raduis_reverse]="!langfun()" [style.background]="icon_option_color"> <span>  {{'owner.Settings'|translate}} </span><div class="icon_large  " [class.leftToRight]="!langfun()" [style.background]="icon_option_color_item"><img [src]="url_option"></div>  </div> </div>
+    </div>
+</div>
+
+
+
+<div class="large_screen p-5 border border-5  position-relative ">
+  <div class="outline_show ">
+    <app-request [style.display]='request_show'></app-request>
+    <app-profile-onwer  *ngIf="active_profile" [profile_data]="profile_data" [interests]="interests" [call_data]="call_data"></app-profile-onwer>
+    <app-control-housing *ngIf="active_partner" [add_house]="add_house" [my_house]="my_house"></app-control-housing>
+    <app-services-owner></app-services-owner>
+    <app-add-housing  *ngIf="active_house" [requests]="requests" [new_ads]="new_ads" [my_ads]="my_ads"></app-add-housing>
+
+    <app-options *ngIf="active_option" [option_more]="more"  [option_subscribers]="subscribers"  [option_main]="main"   ></app-options>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+    <div *ngIf="active_house" class="menu_option position-relative    ">
+        <div class="box_option position-absolute w-100 h-80  ">
+          <div class="position-absolute w-100 xx text-white">
+              <div (click)="search_house()" [style.background]="search_house_color"  class="option1  center"> {{'owner.New advertisement'|translate}}</div>
+              <div (click)="search_requests_fun()" [style.background]="search_requests_color" class="option1  center"> {{'owner.My Ads'|translate}} </div>
+              <div (click)="_requests_fun()" [style.background]="_requessts_color" class="option1  center"> {{'owner.Inspection requests'|translate}} </div>
+          </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="active_partner" class="menu_option position-relative    ">
+        <div class="box_option position-absolute w-100 h-80  ">
+          <div class="position-absolute w-100 xx text-white" >
+              <div  (click)="search_fnd()" [style.background]="search_fnd_color" class="option1  center"> {{'owner.Add a residence'|translate}}</div>
+              <div  (click)="request_fnd()" [style.background]="request_fnd_color" class="option1  center"> {{'owner.Living'|translate}}</div>
+
+          </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="active_option" class="menu_option position-relative    ">
+        <div class="box_option position-absolute w-100 h-80  ">
+          <div class="position-absolute w-100 xx text-white">
+              <div (click)="option_main()" [style.background]="option_main_color"  class="option1  center"> {{'owner.Main'|translate}}</div>
+              <div (click)="option_subscribe()" [style.background]="option_subscribe_color" class="option1  center"> {{'owner.Subscription'|translate}}</div>
+              <div (click)="option_more()" [style.background]="option_more_color" class="option1  center"> {{'owner.More'|translate}}</div>
+          </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="active_otherServies" class="menu_option position-relative    ">
+        <div class="box_option position-absolute w-100 h-80  ">
+          <div class="position-absolute w-100 xx text-white">
+            <div (click)="education_fun()" [style.background]="education_color" class="option1  center"> التعليم</div>
+            <div (click)="eating_fun()" [style.background]="eating_color" class="option1  center"> الطعام</div>
+            <div (click)="cleaning_fun()" [style.background]="cleaning_color" class="option1  center"> النظافه</div>
+          </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="active_profile" class="menu_option position-relative    ">
+        <div class="box_option position-absolute w-100 h-80  ">
+            <div class="position-absolute w-100 xx text-white">
+                <div (click)="profile_data_fun()" [style.background]="profile_data_color" class="option1   center"> {{'owner.Personal data'|translate}}</div>
+                <div (click)="call_data_fun()" [style.background]="call_data_color" class="option1   center"> {{'owner.Contact Data'|translate}}</div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+

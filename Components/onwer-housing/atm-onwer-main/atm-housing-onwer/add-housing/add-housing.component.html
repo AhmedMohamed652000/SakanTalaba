@@ -1,0 +1,683 @@
+<div  class=" p-5   background_my_flats rounded-5  " *ngIf="new_ads" >
+<h4 class="m-auto w-50 text-center mb-4">{{'owner.Choosing the apartment'|translate}}</h4>
+  <form class [formGroup]="get_date" (ngSubmit)="get_pro_date(get_date.value)">
+      <div class="w-100 center">
+      <p-dropdown [class.dd]='!langfun()'  class="choice_flat text-center w-100 m-auto text-center center" [options]="proOfUser" optionValue="id"   optionLabel="id" formControlName="product_id"></p-dropdown>
+      </div>
+      <div class="my_flats w-100 m-0 mt-4 row">
+        <div class="col-8  row m-0">
+
+            <div class="col-12 row m-0 mb-3 ">
+              <div class="col-5  text-end m-auto">
+                <h5> {{'owner.date of inspection 1'|translate}}</h5>
+                <p-dropdown class="m-0" [options]="langfun()?days_ar:days_en" optionLabel="name" optionValue="value"  formControlName="date1" ></p-dropdown>
+
+              </div>
+
+
+              <input type="text" class="d-none" formControlName="product_id" >
+
+              <div class="col text-end m-auto">
+                <h5> {{'owner.From'|translate}} </h5>
+                <div class="field col-12 md:col-4">
+                  <p-calendar [timeOnly]="true" hourFormat="12" inputId="timeonly" formControlName="From1"  ></p-calendar>
+                </div>
+
+              </div>
+              <div class="col  text-end m-auto">
+                <h5> {{'owner.To'|translate}} </h5>
+                <div class="field col-12 md:col-4">
+                  <p-calendar [timeOnly]="true" hourFormat="12" inputId="timeonly" formControlName="To1" ></p-calendar>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-12 row m-0 mb-3 ">
+              <div class="col-5  text-end m-auto">
+                <h5>{{'owner.date of inspection 2'|translate}}</h5>
+                <p-dropdown class="m-0" [options]="langfun()?days_ar:days_en" optionLabel="name" formControlName="date2" optionValue="value"  ></p-dropdown>
+
+              </div>
+
+              <div class="col text-end m-auto">
+                <h5> {{'owner.From'|translate}} </h5>
+                <div class="field col-12 md:col-4">
+                  <p-calendar [timeOnly]="true" hourFormat="12" inputId="timeonly" formControlName="From2" ></p-calendar>
+                </div>
+
+              </div>
+              <div class="col  text-end m-auto">
+                <h5> {{'owner.To'|translate}} </h5>
+                <div class="field col-12 md:col-4">
+                  <p-calendar [timeOnly]="true" hourFormat="12" inputId="timeonly" formControlName="To2" ></p-calendar>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-12 row m-0 mb-3 ">
+              <div class="col-5  text-end m-auto">
+                <h5>{{'owner.date of inspection 3'|translate}}</h5>
+                <p-dropdown class="m-0" [options]="langfun()?days_ar:days_en" optionLabel="name" formControlName="date3" optionValue="value"  ></p-dropdown>
+
+              </div>
+
+              <div class="col text-end m-auto">
+                <h5> {{'owner.From'|translate}}</h5>
+                <div class="field col-12 md:col-4">
+                  <p-calendar [timeOnly]="true" hourFormat="12" inputId="timeonly" formControlName="From3" ></p-calendar>
+                </div>
+
+              </div>
+              <div class="col  text-end m-auto">
+                <h5> {{'owner.To'|translate}} </h5>
+                <div class="field col-12 md:col-4">
+                  <p-calendar [timeOnly]="true" hourFormat="12" inputId="timeonly" formControlName="To3" ></p-calendar>
+                </div>
+
+              </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-4 mt-4"  style="height:19vw" >
+          <h5 class="text-center">{{'owner.Notes'|translate}}</h5>
+          <textarea class="w-100 h-100 notes" style="max-height:100%" pInputTextarea formControlName="notes" ></textarea>
+
+        </div>
+      </div>
+
+      <div class="  m-auto mt-4 center">
+        <button class="share" type="submit" >{{'owner.publishing'|translate}}</button>
+      </div>
+
+  </form>
+
+</div>
+
+
+<!-- ............     اعلانتي   ............ -->
+
+
+<div *ngIf="my_ads" class=" w-100 h-100  overflow-auto">
+
+    <div class="w-100 row">
+      <div (click)="friends_fun()" class="col center requests" [style.background]="friends_color" [style.color]="friends_color_2">{{'owner.Announcement published'|translate}}</div>
+      <div (click)="req_rcieve_fun()" class="col center requests" [style.background]="req_rcieve_color" [style.color]="req_rcieve_color_2"> {{'owner.Advertisement temporarily suspended'|translate}}</div>
+      <div (click)="req_send_fun()" class="col center requests" [style.background]="req_send_color" [style.color]="req_send_color_2">{{'owner.Advertisement rejected'|translate}}</div>
+    </div>
+
+    <div [style.display]="wait" class="m-auto">
+      <div class=" flat m-1 bg-info   "    *ngFor="let ads of owner_ads.date " [style.width]="(ads.status == null)?'':'0%'"  >
+          <div class="flat  w-100 m-auto  p-3 color2  " *ngIf="ads.status == null">
+            <div id="carouselExampleControls" class="carousel slide color5  " data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img [src]="" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/image/frind_color.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwa2g9zFG13qlAWOeVVuLHGbkaXnLNsK8cWs28w3h5mPHPtspeREKDYTnReV7fR9__ag&usqp=CAU" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+        <div class="less_info d-flex justify-content-center align-items-center">
+          <p class="center"> <span> {{'owner.Advertising number:'|translate}} </span> <span> {{ ads.id }}</span> </p>
+          </div>
+          <div class=" less_info less_info2 d-flex justify-content-center align-items-center">
+            <p class="center"> <span> {{'owner.Views'|translate}}</span> <span> {{ ads.count }}</span> </p>
+            </div>
+        <div class="more w-100 center justify-content-evenly ">
+        <button class="show" > {{'owner.Modify'|translate}} </button>
+        <button class="modi" (click)="stop_ads(ads.id)" > {{'owner.Stop'|translate}}  </button>
+        <button class="del" (click)="delete_ads(ads.id)" >{{'owner.Delete'|translate}}  </button>
+        </div>
+          </div>
+      </div>
+    </div>
+
+    <div [style.display]="accept">
+      <div class="d-inline-block flat m-2      "  *ngFor="let ads of owner_ads.date " [style.width]="(ads.status == 1)?'':'0%'" >
+        <div class="flat  w-100 m-1  p-3 color2  "    *ngIf="ads.status == 1"   >
+          <p-galleria [value]="ads.product_photo" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="5">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="'https://api.sakantalaba.live'+item" style="width: 100%; display: block;" />
+              </ng-template>
+            <ng-template pTemplate="thumbnail" let-item>
+                <div class="grid grid-nogutter justify-content-center">
+                    <img [src]="'https://api.sakantalaba.live'+item" />
+                </div>
+            </ng-template>
+        </p-galleria>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img [src]="" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/image/frind_color.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwa2g9zFG13qlAWOeVVuLHGbkaXnLNsK8cWs28w3h5mPHPtspeREKDYTnReV7fR9__ag&usqp=CAU" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div> -->
+
+      <div class="less_info d-flex justify-content-center align-items-center">
+        <p class="center"> <span> {{'owner.Advertising number:'|translate}} </span> <span> {{' '+ ads.id + ' '}} </span> </p>
+        </div>
+        <div class=" less_info less_info2 d-flex justify-content-center align-items-center">
+          <p class="center"> <span> {{'owner.Views'|translate}} </span> <span> {{ ads.count }} </span> </p>
+          </div>
+      <div class="more w-100 center justify-content-evenly ">
+        <button class="show" > {{'owner.Modify'|translate}} </button>
+        <button class="modi" (click)="public(ads.id)" > {{'owner.publishing'|translate}}  </button>
+        <button class="del" (click)="delete_ads(ads.id)" >{{'owner.Delete'|translate}}  </button>
+      </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div [style.display]="control">
+        <div class="d-inline-block flat m-2   "  *ngFor="let ads of owner_ads.date " [style.width]="(ads.status == 2)?'':'0%'" >
+          <div class="flat  w-100 m-1  p-3 color2  "    *ngIf="ads.status ==2"   >
+            <div id="carouselExampleControls" class="carousel slide color5  " data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img [src]="" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/image/frind_color.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwa2g9zFG13qlAWOeVVuLHGbkaXnLNsK8cWs28w3h5mPHPtspeREKDYTnReV7fR9__ag&usqp=CAU" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+        <div class="less_info d-flex justify-content-center align-items-center">
+          <p class="center"> <span> {{'owner.Advertising number:'|translate}} </span> <span> {{ ads.count }}</span> </p>
+          </div>
+          <div class=" less_info less_info2 d-flex justify-content-center align-items-center">
+            <p class="center"> <span> {{'owner.Views'|translate}}</span> <span> {{ ads.count }}</span> </p>
+            </div>
+        <div class="more w-100 center justify-content-evenly ">
+          <button class="modi" >{{'owner.reason of refuse'|translate}}   </button>
+          <button class="del" >{{'owner.Delete'|translate}}  </button>
+        </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+<!-- ............     طلبات المعاينة   ............ -->
+
+<div class="  w-100 h-100 overflow-auto  " *ngIf="requests">
+
+
+<div class="w-100 row">
+  <div (click)="friends_fun2()" class="col center requests" [style.background]="friends_color2" [style.color]="friends_color_22"> {{'owner.Waiting for approval'|translate}} </div>
+  <div (click)="req_rcieve_fun2()" class="col center requests" [style.background]="req_rcieve_color2" [style.color]="req_rcieve_color_22">  {{'owner.Been approved'|translate}}  </div>
+  <div (click)="req_send_fun2()" class="col center requests" [style.background]="req_send_color2" [style.color]="req_send_color_22"> {{'owner.previewed'|translate}}</div>
+</div>
+
+
+<div class='w-100 m-auto row  '>
+
+<!-- ............     انتظار المعاينة   ............ -->
+
+<div class="mx-3" *ngFor=" let talabat of talabatOfOwner?.data1">
+
+  <div class="" >
+
+
+        <div [style.display]="wait2" *ngIf="talabat.status == null"   class="m-auto col-12 m-3 mb-5 row  p-3 reqo  animate__animated animate__bounce"   >
+
+                <div  class='col  center justify-content-start pro '>
+                  <div class=' h-100 center'>
+                    <p-avatar image="assets/image/frind_color.png" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                  </div>
+                  <div class='   center'>
+                    <div class="mx-3">
+                      <p>{{talabat.name}}</p>
+                      <a style="cursor: pointer;padding: 3px 5px; background: #bce7e9;border-radius: 5px; text-decoration: underline; "  (click)="get_profile_id(talabat.user_id)" >{{'owner.View profile'|translate}}</a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class='w-50 row pro p-3'>
+
+                  <div class="col-5 h-100">
+
+                    <div id="carouselExampleControls" class="  carousel slide color5 small_pic  " data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://www.3housedesign.es/wp-content/uploads/2019/10/cabecera-1-e1576328242259.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="assets/image/frind_color.png" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwa2g9zFG13qlAWOeVVuLHGbkaXnLNsK8cWs28w3h5mPHPtspeREKDYTnReV7fR9__ag&usqp=CAU" class="d-block w-100" alt="...">
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+
+
+                  </div>
+                  <div class="col">
+                  <div class="w-75 m-auto center " style='background:#BCE7E9;'>
+                    <span> {{'owner.Advertising number:'|translate}}:</span>
+                    <span>{{talabat.id}}</span>
+                  </div>
+                  <div class="w-100 center ">
+
+                  <span class="w-100 accept " (click)="talabat_mohaina_satatus1(talabat.id)">{{'owner.Accept'|translate}}</span>
+                  <span class="w-100 reject " (click)="talabat_mohaina_satatus2(talabat.id)">{{'owner.reject'|translate}}</span>
+
+                  </div>
+
+
+
+                  </div>
+
+
+
+
+                </div>
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th class="" style="    background: white;padding: 7px;" scope="col">{{'owner.date of inspection'|translate}}</th>
+                      <td class="" style="    background: white;padding: 7px;">{{talabat.date1}}</td>
+                    </tr>
+                    <tr>
+                      <th class="" style="    background: white;padding: 7px;" scope="col">{{'owner.Alternate date'|translate}}</th>
+                      <td class="" style="    background: white;padding: 7px;">{{talabat.date2}}</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                  </tbody>
+
+                </table>
+
+              <div class='w-50 center m-auto'>
+                <p-dropdown class="members" placeholder="الاشخاص"  (onChange)="get_profile_id_drop($event)"  [options]="talabat.friends" optionLabel="name" optionValue="id" optionDisabled="inactive"></p-dropdown>
+              </div>
+
+        </div>
+
+
+
+            <!-- ............     تم الموافقة   ............ -->
+
+            <div [style.display]="accept2" *ngIf="talabat.status == 1" class="m-auto col-12 m-3 mb-5 row reqo  p-3">
+
+              <div class='col  center justify-content-start pro '>
+                <div class=' h-100 center'>
+                  <p-avatar image="assets/image/frind_color.png" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                </div>
+                <div class='   center'>
+                  <div class="mx-3">
+                    <p>{{talabat.name}}</p>
+                    <p style="cursor: pointer;padding: 3px 5px; background: #bce7e9;border-radius: 5px; text-decoration: underline; " (click)="get_profile_contact(talabat.user_id)"  > {{'owner.Show contact information'|translate}} </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class='w-50 row pro p-3'>
+
+                <div class="col-5 h-100">
+
+                  <div id="carouselExampleControls" class="  carousel slide color5 small_pic  " data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="https://www.3housedesign.es/wp-content/uploads/2019/10/cabecera-1-e1576328242259.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/image/frind_color.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwa2g9zFG13qlAWOeVVuLHGbkaXnLNsK8cWs28w3h5mPHPtspeREKDYTnReV7fR9__ag&usqp=CAU" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+
+                </div>
+                <div class="col">
+                <div class="w-75 m-auto center " style='background:#BCE7E9;'>
+                  <span>{{'owner.Advertising number:'|translate}}</span>
+                  <span>{{talabat.id}}</span>
+                </div>
+                <div class="w-100 center ">
+
+                <span class="w-100   accept2 " (click)="talabat_mohaina_satatus3(talabat.id)">{{'owner.previewed'|translate}} </span>
+                <span class="w-100 center   reject " (click)="talabat_mohaina_satatus0(talabat.id)"> {{'owner.cancel preview'|translate}}</span>
+
+                </div>
+
+
+
+                </div>
+
+
+
+
+              </div>
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="" style="    background: white;padding: 7px;" scope="col">{{'owner.date of inspection'|translate}}</th>
+                    <td class="" style="    background: white;padding: 7px;">{{talabat.date1}}</td>
+                  </tr>
+                  <tr>
+                    <th class="" style="    background: white;padding: 7px;" scope="col">{{'owner.Alternate date'|translate}}</th>
+                    <td class="" style="    background: white;padding: 7px;">{{talabat.date2}}</td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+
+              </table>
+
+            <div class='w-50 center m-auto'>
+              <p-dropdown class="members" placeholder="الاشخاص"  (onChange)="get_profile_contact_drop($event)"  [options]="talabat.friends" optionLabel="name" optionValue="id" optionDisabled="inactive"></p-dropdown>
+
+            </div>
+
+            </div>
+
+            <!-- ............     تم المعاينة  ............ -->
+
+            <div [style.display]="control2" *ngIf="talabat.status == 3"   class="m-auto col-12 m-3 mb-5 row   p-3 reqo" >
+
+              <div class='col  center justify-content-start pro '>
+                <div class=' h-100 center'>
+                  <p-avatar image="assets/image/frind_color.png" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+                </div>
+                <div class='   center'>
+                  <div class="mx-3">
+                    <p>{{talabat.name}}</p>
+                    <p  style="cursor: pointer;padding: 3px 5px; background: #bce7e9;border-radius: 5px;text-decoration: underline; " (click)="get_profile_id(talabat.user_id)" >{{'owner.View profile'|translate}}</p>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class='w-50 row pro p-3'>
+
+                <div class="col-5 h-100">
+
+                  <div id="carouselExampleControls" class="  carousel slide color5 small_pic  " data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="https://www.3housedesign.es/wp-content/uploads/2019/10/cabecera-1-e1576328242259.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/image/frind_color.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwa2g9zFG13qlAWOeVVuLHGbkaXnLNsK8cWs28w3h5mPHPtspeREKDYTnReV7fR9__ag&usqp=CAU" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+
+
+                </div>
+                <div class="col">
+                <div class="w-75 m-auto center " style='background:#BCE7E9;'>
+                  <span> {{'owner.Advertising number:'|translate}}</span>
+                  <span>{{talabat.id}}</span>
+                </div>
+                <div class="w-100 center ">
+
+                <span class="w-100 accept "  (click)="talabat_mohaina_satatus5(talabat.id)" > {{'owner.Rental'|translate}}</span>
+                <span class="w-100 reject "  (click)="talabat_mohaina_satatus2(talabat.id)">{{'owner.Cancel'|translate}}  </span>
+
+                </div>
+
+
+
+                </div>
+
+
+
+
+              </div>
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="" style="    background: white;padding: 7px;" scope="col">{{'owner.date of inspection'|translate}}</th>
+                    <td class="" style="    background: white;padding: 7px;">{{talabat.date1}}</td>
+                  </tr>
+                  <tr>
+                    <th class="" style="    background: white;padding: 7px;" scope="col">{{'owner.Alternate date'|translate}}</th>
+                    <td class="" style="    background: white;padding: 7px;">{{talabat.date2}}</td>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+
+              </table>
+
+            <div class='w-50 center m-auto'>
+              <p-dropdown class="members" placeholder="الاشخاص"  (onChange)="get_profile_id_drop($event)"  [options]="talabat.friends" optionLabel="name" optionValue="id" optionDisabled="inactive"></p-dropdown>
+
+            </div>
+
+
+
+
+          </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+<!-- ...........................info_user.................................. -->
+<div class='info_friend mt-4   w-100 position-absolute ' *ngFor="let info of User_info?.Data_Of_User">
+
+  <div class="header  d-flex align-items-center justify-content-around">
+
+        <div class=" about_f_pic_kolia ">
+          <p-avatar [image]="'https://api.sakantalaba.live/'+info.profile_photo" styleClass="mr-2" size="large" shape="circle"></p-avatar>
+        </div>
+      <div class="about_f_name  jj  px-5 ">
+        <label class='label_l '  >{{'services.profile.Personal data.Name' | translate}} </label>
+        <span class='span_n'> {{info.name|ifnull}} </span>
+      </div>
+
+  </div>
+
+
+  <div class='about_f_info m-2 mt-4 w-100'>
+        <label class='label_l '   >{{'services.profile.interests.brief about me' | translate}}</label>
+        <span class='span_n'> {{info.About|ifnull}} </span>
+  </div>
+
+      <div class="w-100 p-2">
+            <div class='about_f_year  '>
+              <label class='label_l '>الهوايات </label>
+              <span class='span_n' > {{info.Hobbies|ifnull}} </span>
+            </div>
+            <div class='about_f_date  '>
+              <label class='label_l '  >{{'services.profile.Personal data.Date of Birth' | translate}}</label>
+              <span class='span_n' > {{info.NationalID|date2}} </span>
+            </div>
+            <div class='about_f_date  '>
+              <label class='label_l '  >{{'services.profile.interests.Religion' | translate}}</label>
+              <span class='span_n' >{{info.Religion|ifnull}}</span>
+            </div>
+        </div>
+    <div class="w-100 p-2">
+
+        <div class='about_f_year '>
+          <label class='label_l '  >العنوان</label>
+          <span class='span_n'> {{info.address|ifnull}} </span>
+        </div>
+
+        <div class='about_f_date '>
+          <label class='label_l '  >{{'services.profile.interests.Smoking' | translate}} </label>
+          <span class='span_n'> {{info.smoke|ifnull}} </span>
+        </div>
+
+        <div class='about_f_date '>
+          <label class='label_l '  > الحاله الاجتماعيه </label>
+          <span class='span_n'> {{info.Social_status|ifnull}} </span>
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <div class="w-100 p-2">
+          <div class='about_f_year ' >
+            <label class='label_l '  >{{'services.profile.Personal data.University' | translate}} </label>
+            <span  class='span_n' *ngFor="let uni of User_info?.Data_Of_User"> {{uni.university?.university_name}} </span>
+          </div>
+
+
+          <div class='about_f_date '>
+              <label class='label_l '  >{{'services.profile.interests.job' | translate}} </label>
+              <span class='span_n' > {{info.job|ifnull}} </span>
+          </div>
+        <div class='about_f_date'>
+          <label class='label_l '  > النوع </label>
+          <span class='span_n' > {{info.NationalID|gender}}</span>
+        </div>
+    </div>
+
+
+
+    <div class="p-inputgroup footer  m-auto w-50" style="height: 53px;margin-top: 24px !important;">
+
+      <button class='btn btn-black request_btn m-auto '  (click)="User_info = null" > رجوع</button>
+    </div>
+</div>
+<!-- ...........................info_user.................................. -->
+
+
+
+
+
+
+
+<!-- ...........................contact.................................. -->
+
+<div class='info_friend mt-4   w-100 position-absolute ' *ngFor="let info of User_contact?.Data_Of_User">
+
+  <div class="header  d-flex align-items-center justify-content-around">
+
+        <div class=" about_f_pic_kolia ">
+          <p-avatar [image]="'https://api.sakantalaba.live/'+info.profile_photo" styleClass="mr-2" size="large" shape="circle"></p-avatar>
+        </div>
+      <div class="about_f_name  jj  px-5 ">
+        <label class='label_l '  >{{'services.profile.Personal data.Name' | translate}} </label>
+        <span class='span_n'> {{info.name|ifnull}} </span>
+      </div>
+
+  </div>
+
+
+  <div class='about_f_info m-2 mt-4 w-100'>
+        <label class='label_l '   > التليفون 1</label>
+        <span class='span_n'> {{info.phone|ifnull}} </span>
+  </div>
+  <div class='about_f_info m-2 mt-4 w-100'>
+        <label class='label_l '   >التليفون 2</label>
+        <span class='span_n'> {{info.phone2|ifnull}} </span>
+  </div>
+  <div class='about_f_info m-2 mt-4 w-100'>
+        <label class='label_l '   >فيسبوك</label>
+        <span class='span_n'> {{info.facebook|ifnull}} </span>
+  </div>
+
+
+
+
+    <div class="p-inputgroup footer  m-auto w-50" style="height: 53px;margin-top: 24px !important;">
+
+      <button class='btn btn-black request_btn m-auto '  (click)="User_contact = null" > رجوع</button>
+    </div>
+</div>
+
+<!-- ...........................contact.................................. -->
+
+</div>
+
+</div>
+
+

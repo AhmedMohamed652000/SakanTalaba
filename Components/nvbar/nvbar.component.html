@@ -1,0 +1,48 @@
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light nav_fixed ">
+
+        <div class="container px-5 pe-5 h-100">
+          <div class="  position-relative" style="    transform: translateX(10px);">
+            <a class="navbar-brand m-0 p-0 h-100" href="#"><img class="h-100" src="assets/image/logo.png" ></a>
+            <div class="shape" style="background-color:#00adb5"></div>
+          </div>
+          <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+
+          <div class="collapse navbar-collapse  justify-content-between px-5" [class.show]="isOpen" id="navbarSupportedContent">
+            <div class=" center justify-content-start ">
+              <i class="pi pi-globe " style="font-size: 2rem"></i>
+              <select (change)="changeLang($event)" (change)="realodPage()" class="langu  text-center">
+                <option >اللغة \ language</option>
+                <option value="ar">العربية</option>
+                <option value="en">english</option>
+              </select>
+            </div>
+
+            <ul class="navbar-nav   mb-2 mb-lg-0" >
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="home">{{'home.home' | translate}}</a>
+              </li>
+              <li class="nav-item">
+                <a  class="nav-link active" routerLink="student" aria-current="page" (click)="user_fun({'email': 'mo_salah@gmail.com','password':'1234567'})" style="cursor:pointer">الدخول كطالب</a>
+              </li>
+              <li class="nav-item">
+                <a  class="nav-link active" aria-current="page" (click)="user_fun({'email': 'owner1@gmail.com','password':'1234567'})" routerLink="owner">الدخول كصاحب سكن</a>
+              </li>
+
+              <li class="nav-item">
+                <a   (click)='islogout()' class="nav-link active" aria-current="page" routerLink="login">{{'home.sign out' | translate}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="register">{{'home.create account' | translate}}</a>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </nav>

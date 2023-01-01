@@ -1,0 +1,14 @@
+.leftToRight
+{
+  left: auto;
+  right:-1px;
+}
+
+.raduis_reverse
+{
+  border-radius:0px 49px 49px 0px!important;
+  -webkit-border-radius:0px 49px 49px 0px!important;
+  -moz-border-radius:0px 49px 49px 0px!important;
+  -ms-border-radius:0px 49px 49px 0px!important;
+  -o-border-radius:0px 49px 49px 0px!important;
+}
