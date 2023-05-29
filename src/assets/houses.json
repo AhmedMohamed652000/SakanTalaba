@@ -1,0 +1,15 @@
+{
+    "datainfo":[{
+    "description":"string",
+    "type":"string",
+    "distance":"number",
+    "quality":"string",
+    "num_room":"number",
+    "id":"string",
+    "price":"number",
+    "inventoryStatus":"string",
+    "category":"fdg",
+    "rating":"dsf"
+  }],
+  "images":[{"image1":"https://images.all-free-download.com/images/graphiclarge/green_house_icon_312519.jpg"}]
+}

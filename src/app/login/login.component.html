@@ -1,0 +1,37 @@
+<!-- ....................................login page............................................. -->
+<div class="color2 back_login position-relative">
+
+  <mat-card class="login_form color4 p-4  animate__animated animate__zoomIn ">
+    <mat-card-title>
+      <img class="m-auto" src="../../assets/image/logo.png" width="150px" height="150" alt="n">
+    </mat-card-title>
+  <mat-card-content class=" position-relative">
+    <div class=" mt-4">
+  <form [formGroup]="loginForm" (ngSubmit)="submitregister(loginForm)">
+
+
+    <mat-form-field>
+      <input type="text" matInput placeholder="البريد الاليكترونى" formControlName="email">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input type="password" matInput placeholder="كلمة السر" formControlName="password">
+    </mat-form-field>
+
+
+
+
+  <div class="button d-flex justify-content-center mt-5">
+    <button [disabled]="loginForm.invalid" type="submit" class='btn btn-dark  m-auto'>  تسجيل الدخول</button>
+  </div>
+
+  </form>
+  </div>
+  </mat-card-content>
+  </mat-card>
+
+
+</div>
+
+

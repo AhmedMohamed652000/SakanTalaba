@@ -1,0 +1,332 @@
+{
+
+    "home":
+    {
+        "home" :"الرئيسيه",
+        "services" :"خدماتنا",
+        "create account" :"حساب جديد",
+        "sign in" :"تسجيل الدخول",
+        "sign out" :"تسجيل الخروج",
+        "With service" :"مع خدمة",
+        "Sakan Talaba" :"سكن طلبه ,",
+        "Get accommodation closer to your university." :"احصل على سكن اقرب الى جامعتك",
+        "Register now" :"سجل الان",
+        "Searching for housing" :"البحث عن سكن",
+        "Searching for a partner" :"البحث عن شريك",
+        "Why" :"ليه ",
+        "is the best" :"هو الأفضل ؟",
+        "Reliable place of residence" :"مكان سكن موثوق",
+        "Reliable housing partner" :"شريك سكن موثوق",
+        "Diversity of accommodation" :"تنوع أماكن السكن",
+        "There is no broker." :"لا يوجد سمسار",
+        "what is" :"ما هي",
+        "Student housing is the leading platform in providing housing for university students in Egypt." :"سكن طلبة هي المنصة الرائدة في توفير سكن لطلاب وطالبات الجامعات في مصر",
+        "Student" :"طالب",
+        "Read more" :"اقرا المزيد",
+        "University" :"جامعة",
+        "Residence" :"سكن",
+        "Service Provider" :"مزود خدمة",
+        "Sakan Talaba =" :"سكن طلبة =",
+        "Accommodation for all university students in Egypt." :"سكن لكل طلاب جامعات مصر",
+        "All rights reserved © Student Housing 2021" :"جميع الحقوق محفوظة © سكن طلبة 2021",
+        "#follow us on" :"تابعونا علي #"
+    },
+    "services":
+    {
+
+      "profile" :
+      {
+        "Personal data" :
+        {
+          "Looking for accommodation" :"ابحث عن سكن",
+          "Save" :"حفظ",
+          "Modify" :"تعديل",
+          "Appreciation" :"التقدير",
+          "address" :"العنوان",
+          "the band" :"الفرقة",
+          "gender" :"النوع",
+          "Specialization" :"التخصص",
+          "Date of Birth" :"تاريخ الميلاد",
+          "college" :"الكلية",
+          "National ID" :"الرقم القومي",
+          "University" :"الجامعة",
+          "Name" :"الإسم "
+        },
+
+        "contact information" :
+        {
+          "Mobile Number 1" :"رقم المحمول 1 ",
+          "Mobile Number 2" :"رقم المحمول 2 ",
+          "Facebook" :"فيسبوك",
+          "Telegram" :"تلجرام",
+          "WhatsApp" :"رقم  الواتس آب",
+          "Modify" :"تعديل",
+          "Save" :"حفظ"
+        },
+        "interests" :
+        {
+          "Modify" :"تعديل",
+          "Save" :"حفظ",
+          "Interests" :"الهوايات",
+          "Cooking skill" :"مهارة في الطبخ",
+          "chronic diseases" :"الأمراض المزمنة",
+          "Smoking" :"التدخين",
+          "Religion" :"الديانة",
+          "Social Situation" :"الحالة الإجتماعية",
+          "job" :"الوظيفة",
+          "brief about me" :"نبذة عني"
+
+        }
+      },
+
+      "options":
+      {
+        "more":
+        {
+          "Delete Email":"حذف الايميل"
+        },
+        "Subscription":
+        {
+          "subscription status":"حالة الاشتراك : ",
+          "not subscribed":"غير مشترك ",
+          "subscriber":"مشترك ",
+          "From":"من ",
+          "To":"الي",
+          "Semi-annual subscription":"اشتراك نصف سنوي ",
+          "Annual subscription":"اشتراك  سنوي ",
+          "pounds":"  جنيهاً"
+        },
+        "basic":
+        {
+          "Change e-mail":"تغيير الإيميل",
+          "E-mail":"الايميل",
+          "Send confirmation code":"إرسال رمز التأكيد",
+          "confirmation code":"رمز التأكيد",
+          "confirm the code":"تأكيد الرمز",
+          "back":"رجوع",
+          "Change the password":"تغيير الرقم السري ",
+          "Old password":"الرقم السري القديم",
+          "the new password":"الرقم السري الجديد",
+          "Confirm the new number":"تـأكيد الرقم الجديد",
+          "Saving changes":"حفظ التغييرات"
+        }
+      },
+      "Other services":
+      {
+        "education":
+        {
+         "free courses":"كورسات مجانية",
+         "Scholarships and training":"منح دراسية و تدريبات",
+         "Most popular educational websites":"أشهر المواقع التعليمية",
+         "Offers and discounts":"عروض و خصومات"
+
+        },
+        "food":
+        {
+         "the ingredients":"- المكونات -",
+         "How to prepare":"- طريقة التحضير -",
+         "preparation time":"- مدة التحضير -",
+         "recipes":"وصفات",
+         "A quick":"سريعة",
+         "greening":"التخضير",
+         "Show":"عرض",
+         "codes":"- أكواد -",
+         "discount":"- خصم - ",
+         "codes that give you":"أكواد تمنحك ",
+         "discounts":" خصومات",
+         "on food orders":"علي طلبات الطعام"
+        },
+        "Cleanliness":
+        {
+          "call now":"إتصل الآن"
+        }
+      },
+      "house":
+      {
+        "kind of search":"نوع البحث",
+        "Away from college":"البعد عن الكلية",
+        "price":"السعر",
+        "Search":"بحث",
+        "level of finishing":"مستوي التشطيب",
+        "L.E":"ج.م",
+        "More details":"المزيد من التفاصيل",
+        "one house":{
+          "housing owner":"صاحب السكن",
+          "Photo Gallery":"معرض الصور",
+          "Notes":"ملاحظات :",
+          "Description of accommodation":"وصف السكن",
+          "Accommodation type":"نوع السكن",
+          "level of finishing":"مستوي التشطيب",
+          "Number of balconies":"عدد البلكونات",
+          "space":"المساحه",
+          "bathrooms":"الحمامات",
+          "floors":"الطوابق",
+          "Kitchen":"المطبخ",
+          "paying":"الدفع",
+          "description":"الوصف",
+          "Away from college":"البعد عن الكلية",
+          "price":"السعر",
+          "Evaluation":"التقييم",
+          "Available places":"الاماكن المتاحه",
+          "number of room":"عدد الفرف",
+          "Number of beds":"عدد السرائر",
+          "number of people":"عدد الاشخاص",
+          "Services":"خدمات",
+          "Water":"ماء",
+          "Gas":"غاز",
+          "Electricity":"كهرباء",
+          "Internet":"انترنت",
+          "elevator":"مصعد",
+          "air conditioner":"مكيف",
+          "devices":"الاجهزة",
+          "washing machine":"غسالة",
+          "TV":"تليفزيون",
+          "refrigerator":"ثلاجة",
+          "heater":"سخان",
+          "fan":"مروحة",
+          "Water filter":"فلتر مياه ",
+          "radio":"راديو",
+          "Play Station":"بلايستيشن",
+          "Available":"متاح",
+          "Request for inspection":"طلب معاينة",
+          "back":"رجوع",
+          "From":"من",
+          "To":"إلي",
+          "Send a request":"ارسال طلب"
+
+        },
+        "Inspection requests":
+        {
+          "Waiting for approval":" في انتظار الموافقة",
+          "Been approved":"تم الموافقة",
+          "Checked":"تم المعاينة",
+          "Contact Data":"بيانات التواصل",
+          "Amend the request":"تعديل الطلب ",
+          "cancel sending the request":" إلغاء إرسال الطلب",
+          "View profile":"عرض الملف الشخصي",
+          "Request Amendment":"تعديل الطلب",
+          "residential":"سكني",
+          "Cancel":"إلغاء"
+        },
+        "residential":
+        {
+          "Your friends at home":"اصدقائك في السكن",
+          "housing owner":"صاحب السكن:"
+
+        }
+      },
+      "friends":
+      {
+
+          "friends":"الاصدقاء",
+          "Requests Sent":"الطلبات المرسلة",
+          "Received requests":"الطلبات المستقبلة",
+          "Approval of the request":"الموافقة علي الطلب",
+          "Rejection of the application":"رفض الطلب",
+          "Search by name":"البحث بالاسم"
+      }
+    },
+    "owner":
+    {
+      "number of beds":"عدد السرائر",
+      "Price":"السعر",
+      "Area (in meters)":"المساحه (بالمتر) ",
+      "housing description":"وصف السكن",
+      "next":"التالي",
+      "back":"رجوع",
+      "Services and Equipment":"الخدمات و الأجهزة ",
+      "cooker":"بوتجاز",
+      "land line":"تليفون أرضي",
+      "Governorate":"المحافظة",
+      "City / Center":"المدينة / المركز",
+      "Address":"العنوان",
+      "current location":"الموقع الحالي",
+      "Select your location":" حدد موقعك",
+      "Create a residence":"انشاء سكن",
+      "Advertising number:":"رقم الإعلان :",
+      "Rental":"تأجير",
+      "Modify":"تعديل",
+      "Stop":"إقاف",
+      "Delete":"حذف",
+      "publishing":"نشر",
+      "Create advertisement":"إنشاء إعلان",
+      "Choosing the apartment":"أختيار الشقة",
+      "date of inspection 1":"موعد المعاينة 1",
+      "From":"من",
+      "To":"الي",
+      "date of inspection 2":"موعد المعاينة 2",
+      "date of inspection 3":"موعد المعاينة 3",
+      "Notes":"ملاحظات",
+      "Announcement published":"إعلان تم نشرة",
+      "Advertisement temporarily suspended":"إعلان موقوف مؤقتاً",
+      "Advertisement rejected":"إعلان تم رفضه",
+      "Views":" عدد المشاهدات :",
+      "reason of refuse":"سبب الرفض",
+      "Waiting for approval":"في انتظار الموافقة ",
+      "Been approved":"تم الموافقة",
+      "previewed":" تم المعاينة ",
+      "View profile":"عرض الملف الشخصي",
+      "Accept":"موافق",
+      "reject":"رفض",
+      "date of inspection":"موعد المعاينة",
+      "Alternate date":"موعد بديل",
+      "Date":"التاريخ",
+      "hour":"الساعه",
+      "Show contact information":"عرض بيانات التواصل",
+      "cancel preview":"إلغاء المعاينة",
+      "Cancel":"إلغاء",
+      "Profile":"الصفحة الشخصية",
+      "Advertising Management":"إدارة الاعلانات",
+      "Management of Residence":"ادراه السكن",
+      "Other services":"خدمات اخري",
+      "Settings":" الاعدادات",
+      "New advertisement":"إعلان جديد",
+      "My Ads":"إعلاناتي",
+      "Inspection requests":"طلبات المعاينة ",
+      "Add a residence":"إضافة سكن",
+      "Living":"السكن",
+      "Main":"الاساسية",
+      "Subscription":"الاشتراك",
+      "More":"المزيد",
+      "Personal data":"البيانات الشخصية",
+      "Contact Data":"بيانات التواصل",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":"",
+      "":""
+    },
+
+  "main":
+  {
+    "exhibition":"المعرض",
+    "Map":"الخريطة",
+    "Inspection requests":"طلبات المعاينه",
+    "residential":"سكنى",
+    "Search":"بحث",
+    "Friendship requests":"طلبات الصداقه",
+    "Invite a friend":"دعوه صديق",
+    "Main":" الاساسية",
+    "Subscription":"الاشتراك",
+    "More":"المزيد",
+    "Education":"التعليم",
+    "Food":"الطعام",
+    "Cleanliness":"النظافه",
+    "Personal data":"البيانات الشخصية",
+    "Contact Data":"بيانات التواصل",
+    "Interests":"الاهتمامات",
+    "Profile":"الصفحة الشخصية",
+    "looking for housing":"بحث عن سكن",
+    "Searching for a partner":"بحث عن شريك ",
+    "Other services":"خدمات اخري ",
+    "Settings":"الاعدادات"
+  }
+}

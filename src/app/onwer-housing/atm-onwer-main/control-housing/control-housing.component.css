@@ -1,0 +1,182 @@
+.less_info{
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  background:white;
+  border-radius: 5px;
+  margin: 11px;
+}
+.less_info2
+{
+  background:#FFF700;
+}
+
+.more button {
+  height: 46px;
+  border-radius: 27px;
+  width: 65%;
+  background: #EEEEEE;
+  margin-bottom: 15px;
+  color: white;
+  background: var(--color3) !important;
+  border: 3px white solid;
+
+}
+
+.content
+{
+  font-weight: bolder;
+  border: 3px solid;
+  border-radius: 25px;
+  width: 25%;
+  padding: 0px;
+  height:3vw;
+
+}
+.item
+{
+  padding: 0px;
+  background: white;
+  font-size: 1.5vw;
+  height: 100%;
+  outline: 3px solid;
+  border-radius: 43px;
+  width:65%;
+  justify-content:center;
+  display:flex;
+  align-items:center;
+  background:white;
+}
+.value
+{
+  width:35%;
+  justify-content:center;
+  display:flex;
+  align-items:center
+}
+.one_member
+{
+  background: white;
+  border-radius: 60px;
+  padding: 9px 15px;}
+.delete
+{
+  border: 3px solid;
+  height: 3.5vw;
+  width: 4.5vw;
+  padding: 0px 0px;
+  border-radius: 38px;
+  background: var(--color3);
+  color: white;
+  border: 3px solid black;
+  cursor: pointer;
+
+}
+
+:host::ng-deep .p-avatar.p-avatar-circle {
+  height: 55px;
+  width: 55px;
+}
+
+.one_member_rate
+{
+  height:5vw;
+}
+
+.right
+{
+  background:#7FD6DA;
+  height:content;
+  border-radius: 30px;
+
+}
+
+.hightt
+{
+  height:5vw;
+}
+.one_member_rate
+{
+  height:70%;
+}
+
+:host::ng-deep .gallery
+{
+  direction:ltr
+}
+
+:host::ng-deep .p-galleria .p-galleria-thumbnail-container {
+
+  height: 88px;
+}
+:host::ng-deep .p-galleria-thumbnail-items-container img {
+
+  width: 100%;
+  height: 100%;
+}
+
+
+.cancel
+{
+  color: red;
+    border-radius: 30px;
+    height: 3vw;
+    background: white;
+    font-size: 1.4vw;
+    padding: 16px;
+    border: 4px solid;
+}
+.add_stu{
+  height: 3.2vw;
+  background: #FFFFFF;
+  border: 2px solid #707070;
+  border-radius: 25px;
+  font-size: 1.2vw;
+}
+
+.one
+{
+  height:120px;
+}
+
+.adress_height
+{
+  height:170px !important
+}
+
+.less_info3
+{
+  background: #4FCC5D;
+  color: white;
+  border-radius: 20px;
+  border: 3px solid;
+  width: 50%;
+  margin: 9px auto;
+  cursor: pointer;
+  padding: 20px;
+}
+
+
+.housing_description {
+  background: var(--color1);
+  padding: 21px;
+  border-radius: 15px;
+  box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+  height: 340px;
+}
+
+
+@media (min-width: 1200px)
+{
+
+  .housing_description {
+    background: var(--color1);
+    padding: 21px;
+    border-radius: 15px;
+    box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+    height: 640px;
+  }
+
+}

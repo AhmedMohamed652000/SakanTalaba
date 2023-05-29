@@ -1,0 +1,219 @@
+<div *ngIf='error' class="alert alert-danger">{{error}}</div>
+  <div class="container-fluid     row full  p-0 m-0 ">
+
+    <div class="right-signUp position-relative shadow shadow-lg     p-4">
+      <div class="container-fluid">
+        <div class="w-80 m-auto  ">
+
+            <h1 class='mt-4 m-auto text-center'>حساب جديد</h1>
+            <div class="d-flex justify-content-center mt-5">
+              <div class="logo ">
+                <img src="../../assets/image/logo.png" class="img-fluid" width='300px' alt="">
+              </div>
+            </div>
+
+            <div class="button_login d-flex justify-content-center position-absolute ">
+              <button *ngIf="role == 'user'" (click)="role = 'owner'" class='btn btn-dark'> التسجيل كصاحب سكن  </button>
+              <button *ngIf="role == 'owner'" (click)="role = 'user'" class='btn btn-dark'> التسجيل كطالب  </button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+  <div class="left-signUp position-relative ">
+
+    <mat-stepper linear #stepper>
+      <mat-step [stepControl]="firstFormGroup" >
+
+        <form [formGroup]="firstFormGroup"  >
+          <div class="w-50 m-auto center mt-5"> <h1>ادخل صوره البطاقه الشخصيه</h1></div>
+
+          <div class='scanner center'>
+              <blinkid-in-browser  #el class="scanner_edit rounded-5 bg-red "></blinkid-in-browser>
+          </div>
+
+          <div class="mt-5 ">
+            <button (click)="gender_fun()" (click)="get_full_year()" mat-button matStepperNext class="border" [disabled]="next">التالي</button>
+          </div>
+
+
+        </form>
+
+      </mat-step>
+
+      <mat-step [stepControl]="registerForm">
+        <div class="alert alert-danger" *ngIf="error"></div>
+
+        <form [formGroup]="registerForm" action="" class="  h-100 container-fluid p-0 m-0 " (ngSubmit)="submitregister(registerForm)">
+          <div class=" m-auto  h-100 w-100  mt-5 ">
+
+                <div class="box_signUp   m-auto">
+                    <mat-form-field appearance="fill" class="  mb-1   info_person">
+                      <mat-label> الاسم  </mat-label>
+                      <input matInput required  formControlName='name' type="text" class="form-control form-control2 ">
+                      <mat-error *ngIf="registerForm.get('name')?.errors != null && registerForm.get('name')?.touched">
+                        <p class = 'mx-3' *ngIf="registerForm.get('name')?.errors?.required"> مطلوب  </p>
+                      </mat-error>
+                     </mat-form-field>
+
+
+                     <div  class="  mb-1  info_person2  " *ngFor="let item of data">
+                        <mat-form-field class="w-100" appearance="fill">
+                          <mat-label>  الرقم القومى </mat-label>
+                          <input formControlName='NationalID' ngModel="{{item.personalIdNumber | toEnglishNum}}" matInput   type="text" class="form-control form-control2 d-none " >
+                          <input  value="{{item.personalIdNumber | toEnglishNum}}"   [disabled]="true"  type="text" class="form-control form-control2 " >
+                          <mat-error *ngIf="registerForm.get('NationalID')?.errors != null && registerForm.get('NationalID')?.touched">
+                            <p class = 'mx-3' *ngIf="registerForm.get('NationalID')?.errors?.required"> مطلوب  </p>
+                            <p class = 'mx-3' *ngIf="registerForm.get('NationalID')?.errors?.pattern"> رقم غير صالج </p>
+
+                          </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field appearance="fill" class="  mb-1  info_person d-none ">
+                      <mat-label>  الايميل  الشخصي</mat-label>
+                      <input  matInput required  formControlName='role_name' type="text" [value]="role" class="form-control form-control2">
+                    </mat-form-field>
+
+
+
+
+
+
+
+
+                    <mat-form-field appearance="fill" class="  mb-1  info_person ">
+                      <mat-label>  الايميل  الشخصي</mat-label>
+                      <input  matInput required  formControlName='email' type="email" class="form-control form-control2 ">
+                      <mat-error *ngIf="registerForm.get('email')?.errors != null && registerForm.get('email')?.touched">
+                        <p class = 'mx-3' *ngIf="registerForm.get('email')?.errors?.required"> مطلوب  </p>
+                        <p class = 'mx-3' *ngIf="registerForm.get('email')?.errors?.email">  بريد الكتنروني غير صالج  </p>
+
+                      </mat-error>
+                    </mat-form-field>
+
+
+
+
+
+
+
+
+                    <div class="  mb-1  info_person2 " *ngFor="let item of data">
+
+                      <mat-form-field appearance="fill" class="w-100" >
+                        <mat-label>النوع</mat-label>
+                        <input formControlName='sex' matInput type="text" ngModel="{{item.personalIdNumber | gender}}" matInput   class="form-control form-control2 d-none ">
+                        <input  value="{{item.personalIdNumber | gender}}"   [disabled]="true"  type="text" class="form-control form-control2 " >
+
+                        <mat-error *ngIf="registerForm.get('sex')?.errors != null && registerForm.get('sex')?.touched">
+                          <p class = 'mx-3' *ngIf="registerForm.get('sex')?.errors?.required"> مطلوب  </p>
+                        </mat-error>
+
+                      </mat-form-field>
+                      </div>
+
+                    <mat-form-field appearance="fill" class="  mb-1  info_person ">
+                      <mat-label>    كلمه السر</mat-label>
+                      <input matInput [type]="hide ? 'password' : 'text'"  formControlName='password' class="form-control form-control2 ">
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      <mat-error *ngIf="registerForm.get('password')?.errors != null && registerForm.get('password')?.touched">
+                        <p class = 'mx-3' *ngIf="registerForm.get('password')?.errors?.required"> مطلوب  </p>
+                        <p class = 'mx-3' *ngIf="registerForm.get('password')?.errors?.Password"> يجب ادخال احرف كبيره وصفيره وارقام </p>
+
+                      </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="  mb-1  info_person2 ">
+                      <mat-label>      اعاده كلمه السر  </mat-label>
+                      <input formControlName='password_confirmation' matInput [type]="hide2 ? 'password' : 'text'"  class="form-control form-control2 ">
+                      <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                        <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                      <mat-error *ngIf="registerForm.get('password_confirmation')?.errors != null && registerForm.get('password_confirmation')?.touched">
+                        <p class = 'mx-3' *ngIf="registerForm.get('password_confirmation')?.errors?.required"> مطلوب  </p>
+                        <p class = 'mx-3' *ngIf="registerForm.get('password_confirmation')?.errors?.pattern"> يجب ادخال احرف كبيره وصفيره وارقام </p>
+
+
+                      </mat-error>
+                    </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+                    <mat-form-field class="  dirc    info_person " appearance="fill">
+                      <mat-label>التليفون</mat-label>
+                      <input formControlName='phone' class="form-control form-control2" type="tel" matInput placeholder="010-0000-0000">
+
+                      <mat-error *ngIf="registerForm.get('phone')?.errors != null && registerForm.get('phone')?.touched">
+                        <p class = 'mx-3' *ngIf="registerForm.get('phone')?.errors?.required"> مطلوب  </p>
+                        <p class = 'mx-3' *ngIf="registerForm.get('phone')?.errors?.pattern"> رقم غير صالح</p>
+                      </mat-error>
+
+                    </mat-form-field>
+
+
+
+
+                    <mat-form-field class="  mb-1  info_person2 " appearance="fill" *ngIf="role == 'user'"  >
+                      <mat-label>اختر الكليه </mat-label>
+                      <mat-select formControlName="univirsity_id"   >
+                        <mat-option  *ngFor="let university of university" value="{{university.id}}">
+                          {{university.university_name + " " +university.university_collage }}
+                        </mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="registerForm.get('kolia')?.errors != null && registerForm.get('kolia')?.touched">
+                        <p class = 'mx-3' *ngIf="registerForm.get('kolia')?.errors?.email">  مطلوب </p>
+                      </mat-error>
+                     </mat-form-field>
+    <!-- ----------------------------------------------------------- -->
+
+
+
+
+                    <div class="  w-50    center   m-auto mt-3 ">
+                            <mat-checkbox  required class="example-margin">اوافق على الشروط والاحكام </mat-checkbox>
+                            <a href="">الشروط والاحكام</a>
+                    </div>
+                </div>
+          </div>
+
+        </form>
+        <div mt-4>
+          <button mat-button matStepperPrevious class=" border m-2" >السابق</button>
+          <button (click)="submitregister(registerForm)" mat-button matStepperNext [disabled]="registerForm.invalid" class=" border m-2" >انشاء حساب</button>
+        </div>
+
+      </mat-step>
+      <mat-step>
+        <p>تم التسجيل في خدمه سكن طلبه</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+

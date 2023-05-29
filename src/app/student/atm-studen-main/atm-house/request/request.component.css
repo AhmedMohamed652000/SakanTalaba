@@ -1,0 +1,112 @@
+.profile ,.profile-call
+{
+  height: 96% !important;
+    width: 100% !important;
+    border-radius: 20px !important;
+    margin: 16px auto !important
+}
+
+.from_profile
+{
+
+  font-size: 1.5vw;
+  background: #FFFFFF;
+  border: 3px solid;
+  /* padding: 1.29vw 12px; */
+  border-radius: 25px;
+  margin-right: 10px;
+  padding: 0px 11px;
+  position:relative;
+
+}
+.from_profile span
+{
+  font-size: 1.1vw;
+}
+
+.to_profile
+{
+
+  font-size: 1.5vw;
+  background: #FFFFFF;
+  border: 3px solid;
+  padding: 1.8vw 12px;
+  border-radius: 25px;
+  margin-right: 10px;
+  padding: 0px 11px;
+  position:relative;
+
+}
+.to_profile span
+{
+  font-size: 1.1vw;
+}
+.from_to_full
+{
+  height: 140px;
+}
+.from
+{
+  font-size: 1.5vw;
+  background: #FFFFFF;
+  border: 3px solid;
+  padding: 1.8vw 12px;
+  border-radius: 25px;
+}
+
+
+.request_btn
+{
+  height: 4vw;
+  background: var(--color3);
+  cursor:pointer;
+  border-radius: 17px;
+  font-size: 1.2vw;
+  box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;
+}
+
+.person
+{
+  position: absolute;
+  left:0px;
+  bottom:0px;
+  height: 27vw;
+}
+.back
+{
+  right: -8vw;
+  width: 7vw;}
+
+
+  .mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    cursor: pointer !important;
+
+    text-align: center !important;
+    background: white !important;
+    color: black !important;
+    border-radius: 5px !important;
+    /* font-size: 1vw; */
+    height: 60px !important;
+    width: 413px !important;
+        margin: 5px;
+}
+
+:host::ng-deep .p-multiselect {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  color: black;
+  height: 60px !important;
+  width: 413px !important;
+  margin: 5px;
+  cursor: pointer !important;
+  text-align: center !important;
+  background: white !important;
+  color: black !important;
+  border-radius: 5px !important;
+}

@@ -1,0 +1,325 @@
+{
+  "home":
+    {
+      "home" :"Home",
+       "services" :"Services",
+       "create account" :"Create account",
+       "sign in" :"Sign in",
+       "sign out" :"Sign out",
+       "With service" :"With service",
+       "Sakan Talaba" :"Sakan Talaba ",
+       "Get accommodation closer to your university." :"Get accommodation closer to your university.",
+       "Register now" :"Register now",
+       "Searching for housing" :"Searching for housing",
+       "Searching for a partner" :"Searching for a partner",
+       "Why" :"Why ",
+       "Read more" :"Read more",
+       "is the best" :"is the best ?",
+       "Reliable place of residence" :"Reliable place of residence",
+       "Reliable housing partner" :"Reliable housing partner",
+       "Diversity of accommodation" :"iversity of accommodation",
+       "There is no broker." :"There is no broker.",
+       "what is" :"what is",
+       "Student housing is the leading platform in providing housing for university students in Egypt." :"Student housing is the leading platform in providing housing for university students in Egypt.",
+       "Student" :"Student",
+       "University" :"University",
+       "Residence" :"Residence",
+       "Service Provider" :"Service Provider",
+       "Sakan Talaba =" :"Sakan Talaba =",
+       "Accommodation for all university students in Egypt." :"Accommodation for all university students in Egypt.",
+       "All rights reserved © Student Housing 2021" :"All rights reserved © Student Housing 2021",
+       "#follow us on" :"#follow us on"
+    },
+    "services":
+    {
+
+      "profile" :
+      {
+        "Personal data" :
+        {
+          "Looking for accommodation" :"Looking for accommodation",
+          "Save" :"Save",
+          "Modify" :"Modify",
+          "Appreciation" :"Appreciation",
+          "address" :"address",
+          "the band" :"the band",
+          "gender" :"gender",
+          "Specialization" :"Specialization",
+          "Date of Birth" :"Date of Birth",
+          "college" :"college",
+          "National ID" :"National ID",
+          "University" :"University",
+          "Name" :"Name "
+        },
+        "contact information" :
+        {
+          "Mobile Number 1" :"Mobile Number 1 ",
+          "Mobile Number 2" :"Mobile Number 2 ",
+          "Facebook" :"Facebook",
+          "Telegram" :"Telegram",
+          "WhatsApp" :"WhatsApp",
+          "Modify" :"Modify",
+          "Save" :"Save"
+        },
+        "interests" :
+        {
+          "Modify" :"Modify",
+          "Save" :"Save",
+          "Interests" :"Interests",
+          "Cooking skill" :"Cooking skill",
+          "chronic diseases" :"chronic diseases",
+          "Smoking" :"Smoking",
+          "Religion" :"Religion",
+          "Social Situation" :"Social Situation",
+          "job" :"job",
+          "brief about me" :" brief about me"
+
+        }
+      },
+
+      "options":
+      {
+      "more":
+      {
+        "Delete Email": "Delete Email"
+      },
+      "Subscription":
+      {
+        "subscription status":"subscription status ",
+        "not subscribed":"not subscribed",
+        "subscriber":"subscriber ",
+        "From":"From ",
+        "To":"To",
+        "Semi-annual subscription":"Semi-annual subscription ",
+        "Annual subscription":"Annual subscription ",
+        "pounds":" pounds"
+      },
+      "basic":
+      {
+        "Change e-mail":"Change e-mail",
+        "E-mail":"E-mail",
+        "Send confirmation code":"Send confirmation code",
+        "confirmation code":"confirmation code",
+        "confirm the code":"confirm the code",
+        "back":"back",
+        "Change the password":"Change the password ",
+        "Old password":"Old password",
+        "the new password":"the new password",
+        "Confirm the new number":"Confirm the new number",
+        "Saving changes":"Saving changes"
+      }
+      },
+      "Other services":
+      {
+        "education":
+        {
+          "free courses":"free courses",
+          "Scholarships and training":"Scholarships and training",
+          "Most popular educational websites":"Most popular educational websites",
+          "Offers and discounts":"Offers and discounts"
+
+        },
+        "food":
+        {
+          "the ingredients":"-  ingredients -",
+          "How to prepare":"- How to prepare -",
+          "preparation time":"- preparation time -",
+          "recipes":"recipes",
+          "A quick":"A quick",
+          "greening":"greening",
+          "Show":"Show",
+          "codes":"- codes -",
+          "discount":"- discount - ",
+          "codes that give you":"codes that give you ",
+          "discounts":" discounts",
+          "on food orders":"on food orders"
+        },
+        "Cleanliness":
+        {
+          "call now":"call now"
+        }
+      },
+      "house":
+      {
+        "L.E":"L.E",
+        "kind of search":"kind of search",
+        "Away from college":"Away from college",
+        "price":"price",
+        "Search":"Search",
+        "level of finishing":"level of finishing",
+        "More details":"More details",
+        "one house":{
+          "housing owner":"housing owner",
+          "Photo Gallery":"Photo Gallery",
+          "Notes":"Notes :",
+          "Description of accommodation":"Description of accommodation",
+          "Accommodation type":"Accommodation type",
+          "level of finishing":"level of finishing",
+          "Number of balconies":"Number of balconies",
+          "space":"space",
+          "bathrooms":"bathrooms",
+          "floors":"floors",
+          "Kitchen":"Kitchen",
+          "paying":"paying",
+          "description":"description",
+          "Away from college":"Away from college",
+          "price":"price",
+          "Evaluation":"Evaluation",
+          "Available places":"Available places",
+          "number of room":"number of room",
+          "Number of beds":"Number of beds",
+          "number of people":"number of people",
+          "Services":"Services",
+          "Water":"Water",
+          "Gas":"Gas",
+          "Electricity":"Electricity",
+          "Internet":"Internet",
+          "elevator":"elevator",
+          "air conditioner":"air conditioner",
+          "devices":"devices",
+          "washing machine":"washing machine",
+          "TV":"TV",
+          "refrigerator":"refrigerator",
+          "heater":"heater",
+          "fan":"fan",
+          "Water filter":"Water filter",
+          "radio":"radio",
+          "Play Station":"play Station",
+          "Available":"Available",
+          "Request for inspection":"Request for inspection",
+          "back":"back",
+          "From":"From",
+          "To":"To",
+          "Send a request":"Send a request"
+
+        },
+        "Inspection requests":
+        {
+          "Waiting for approval":"Waiting for approval",
+          "Been approved":"Been approved",
+          "Checked":"Checked",
+          "Contact Data":"Contact Data",
+          "Amend the request":"Amend the request ",
+          "cancel sending the request":" Amend the request",
+          "View profile":"View profile",
+          "Request Amendment":"Request Amendment",
+          "residential":"residential",
+          "Cancel":"Cancel"
+        },
+        "residential":
+        {
+          "Your friends at home":"Your friends at home",
+          "housing owner":"housing owner:"
+
+        }
+
+      },
+      "friends":
+      {
+
+          "friends":"friends",
+          "Requests Sent":"Requests Sent",
+          "Received requests":"Received requests",
+          "Approval of the request":"Approval of the request",
+          "Rejection of the application":"Rejection of the application",
+          "Search by name":"Search by name"
+
+
+
+      }
+
+
+
+
+    },
+    "owner":
+    {
+      "number of beds":"number of beds",
+      "Price":"Price",
+      "Area (in meters)":"Area (in meters) ",
+      "housing description":"housing description",
+      "next":"next",
+      "back":"back",
+      "Services and Equipment":"Services and Equipment",
+      "cooker":"cooker",
+      "land line":"land line",
+      "Governorate":"Governorate",
+      "City / Center":"City / Center",
+      "Address":"Address",
+      "current location":" current location",
+      "Select your location":"Select your location",
+      "Advertising number:":"Advertising number:",
+      "Create a residence":"Create a residence",
+      "Rental":"Rental",
+      "Modify":"Modify",
+      "Stop":"Stop",
+      "Delete":"Delete",
+      "Create advertisement":"Create advertisement",
+      "Choosing the apartment":"Choosing the apartment",
+      "date of inspection 1":"date of inspection 1",
+      "From":"From",
+      "To":"To",
+      "date of inspection 2":"date of inspection 2",
+      "date of inspection 3":"date of inspection 3",
+      "Notes":"Notes",
+      "Announcement published":"Announcement published",
+      "Advertisement temporarily suspended":"Advertisement temporarily suspended",
+      "Advertisement rejected":"Advertisement rejected",
+      "Views":" Views:",
+      "reason of refuse":"reason of refuse",
+      "Waiting for approval":"Waiting for approval",
+      "Been approved":"Been approved",
+      "previewed":" previewed",
+      "publishing":"publish",
+      "View profile":"View profile",
+      "Accept":"Accept",
+      "date of inspection":"date of inspection",
+      "Alternate date":"Alternate date",
+      "Date":"Date",
+      "hour":"hour",
+      "Show contact information":"Show contact information",
+      "cancel preview":"cancel preview",
+      "Cancel":"Cancel",
+      "Profile":"personal page",
+       "Advertising Management": "Advertising Management",
+       "Management of Residence": "Management of Residence",
+       "Other services": "Other services",
+       "Settings": "Settings",
+       "New advertisement": "New advertisement",
+       "My Ads": "My Ads",
+       "Inspection requests": "Inspection requests",
+       "Add a residence": "Add a residence",
+       "living": "housing",
+       "Main": "Main",
+       "Subscription": "subscription",
+       "More": "more",
+       "Personal data": "Personal data",
+       "Contact Data": "Contact Data",
+      "":""
+    },
+
+    "main":
+    {
+      "exhibition":"exhibition",
+      "Map":"Map",
+      "Inspection requests":"Inspection requests",
+      "residential":"residential",
+      "Search":"Search",
+      "Friendship requests":"Friendship requests",
+      "Invite a friend":"Invite a friend",
+      "Main":" Main",
+      "Subscription":"Subscription",
+      "More":"More",
+      "Education":"Education",
+      "Food":"Food",
+      "Cleanliness":"Cleanliness",
+      "Personal data":"Personal data",
+      "Contact Data":"Contact Data",
+      "Interests":"Interests",
+      "Profile":"Profile",
+      "looking for housing":"looking for housing",
+      "Searching for a partner":"Searching for a partner",
+      "Other services":"Other services ",
+      "Settings":"Settings"
+    }
+}

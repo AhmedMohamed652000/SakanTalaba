@@ -1,0 +1,374 @@
+.profile
+{
+  height:max-content;
+  width: 96%;
+  border-radius: 20px;
+  margin: 0px auto;
+  padding: 40px;
+  padding-top: 83px;
+  margin-top: 33px;
+}
+
+
+.name label ,.gmaa label,.id-card label,.kolia label,.date label,.depart label,.gender label,.year label,.address label,.degree label,.job label,.status label,.diana label,.smoking label,.sports label,.cooking label,.hoppies label,.mard label
+{
+  height: 70px;
+  width: 30%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 0 10px 10px 0;
+}
+.name input ,.gmaa input,.id-card input,.kolia input,.date input,.depart input,.gender input,.year input,.address input,.degree input ,.job input ,.status input,.diana input ,.smoking input,.sports input,.cooking input,.hoppies input,.mard input
+{
+  height: 70px;
+  width: calc(100% - 70px);
+  border-radius: 10px 0  0 10px ;
+  -webkit-border-radius: 10px 0  0 10px ;
+  -moz-border-radius: 10px 0  0 10px ;
+  -ms-border-radius: 10px 0  0 10px ;
+  -o-border-radius: 10px 0  0 10px ;
+}
+.p-inputgroup
+{
+  padding: 10px;
+
+}
+
+.profile button , .profile-call button
+
+{
+  width: 197px;
+  margin: auto;
+  height: 60px;
+  border-radius: 40px;
+  border: 3px solid black;
+  box-shadow: rgb(0 0 0 / 45%) 0px 25px 20px -20px;
+  font-size: 2vw;
+  margin-top: 15px;
+}
+
+.mobile1 ,.profile_info
+{
+
+  height: 60px;
+  width: 100%;
+  margin-top:15px;
+
+}
+.mobile1 label ,.profile_info label
+{
+
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 0 10px 10px 0;
+}
+.mobile1 input
+{
+  height: 80px;
+  width: calc(100% - 160px);
+  border-radius: 10px 0  0 10px ;
+  -webkit-border-radius: 10px 0  0 10px ;
+  -moz-border-radius: 10px 0  0 10px ;
+  -ms-border-radius: 10px 0  0 10px ;
+  -o-border-radius: 10px 0  0 10px ;
+}
+.mobile1 img
+{
+  height: 60px;
+  width: 60px;
+  margin-left:9px;
+
+}
+.mobile1 label,.mobile1 input,.mobile1 img ,.profile_info label ,.profile_info input
+{
+  display:flex;
+  justify-content:center;
+  align-items:center
+
+}
+
+.job label,.status label,.diana label,.smoking label,.sports label,.cooking label,.hoppies label,.mard label
+{
+  width:200px;
+}
+
+
+
+
+
+input {
+ text-align:center;
+ border-top-right-radius: 0px;
+ border-bottom-right-radius: 0px;
+ border:0px solid black
+
+
+}
+
+input[disabled] {
+  background:white;
+    color: black;
+
+}
+
+.profile_pic
+{
+  content: '';
+  position: absolute;
+  top: -3%;
+  right: 50%;
+  width: max-content;
+  background: var(--color1);
+  height: 100px;
+  width: 100px;
+  transform: translateX(50%);
+  box-shadow: rgb(0 0 0 / 20%) 0px 20px 30px;
+  border-radius: 72px;
+}
+
+.search_houses
+{
+  position: absolute;
+    left: 2%;
+    width: max-content;
+    top: 5%;
+}
+.search_houses p
+{
+  font-size:2vw;
+}
+.etar_search
+{
+  position: absolute;
+  top: -1px;
+  width: 100%;
+  height: 101%;
+  transform: translateX(50%);
+    right: 50%;
+}
+
+
+.inverse_border
+{
+  border-radius: 10px 0px 0px 10px !important;
+  -webkit-border-radius: 10px 0px 0px 10px !important;
+  -moz-border-radius: 10px 0px 0px 10px !important;
+  -ms-border-radius: 10px 0px 0px 10px !important;
+  -o-border-radius: 10px 0px 0px 10px !important;
+}
+.inverse_input
+{
+  border-radius: 0px 10px 10px 0px !important;
+
+}
+
+@media (min-width: 2px) {
+
+  .name label ,.gmaa label,.id-card label,.kolia label,.date label,.depart label,.gender label,.year label,.address label,.degree label,.job label,.status label,.diana label,.smoking label,.sports label,.cooking label,.hoppies label,.mard label
+  {
+    font-size: 2vw;
+    height: 64px;
+
+
+  }
+  .profile_main_data div
+  {
+    padding: 0 20px;
+  }
+
+  .name input ,.gmaa input,.id-card input,.kolia input,.date input,.depart input,.gender input,.year input,.address input,.degree input ,.job input ,.status input,.diana input ,.smoking input,.sports input,.cooking input,.hoppies input,.mard input
+  {
+    font-size: 2vw;
+    height: 64px;
+
+  }
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 576px) {
+
+
+
+  .name label ,.gmaa label,.id-card label,.kolia label,.date label,.depart label,.gender label,.year label,.address label,.degree label,.job label,.status label,.diana label,.smoking label,.sports label,.cooking label,.hoppies label,.mard label
+  {
+    font-size: 1.6vw;
+    height: 65px;
+
+  }
+  .profile_main_data div
+  {
+    padding: 0 20px;
+  }
+
+  .name input ,.gmaa input,.id-card input,.kolia input,.date input,.depart input,.gender input,.year input,.address input,.degree input ,.job input ,.status input,.diana input ,.smoking input,.sports input,.cooking input,.hoppies input,.mard input
+  {
+    font-size: 1.6vw;
+    height: 65px;
+
+  }
+  .profile
+  {
+    width: 83%;
+  }
+  .profile button , .profile-call button
+
+  {
+    font-size: 1.6vw;
+
+  }
+  .search_houses p
+{
+  font-size:1.6vw;
+}
+
+.mobile1 img
+  {
+    height: 65px;
+    width: 65px;
+  }
+
+  }
+
+@media (min-width: 768px) {
+
+
+  .name label ,.gmaa label,.id-card label,.kolia label,.date label,.depart label,.gender label,.year label,.address label,.degree label,.job label,.status label,.diana label,.smoking label,.sports label,.cooking label,.hoppies label,.mard label
+  {
+    font-size: 1.4vw;
+    height: 65px;
+
+  }
+  .profile_main_data div
+  {
+    padding: 0 20px;
+  }
+
+  .name input ,.gmaa input,.id-card input,.kolia input,.date input,.depart input,.gender input,.year input,.address input,.degree input ,.job input ,.status input,.diana input ,.smoking input,.sports input,.cooking input,.hoppies input,.mard input
+  {
+    font-size: 1.4vw;
+    height: 65px;
+
+  }
+  .profile
+  {
+    width: 83%;
+  }
+  .profile button , .profile-call button
+
+  {
+    font-size: 1.4vw;
+
+  }
+
+  .search_houses p
+  {
+    font-size:1.4vw;
+  }
+
+.mobile1 img
+  {
+    height: 70px;
+    width: 70px;
+  }
+
+
+}
+
+@media (min-width: 992px) {
+
+  .name label ,.gmaa label,.id-card label,.kolia label,.date label,.depart label,.gender label,.year label,.address label,.degree label,.job label,.status label,.diana label,.smoking label,.sports label,.cooking label,.hoppies label,.mard label
+  {
+    font-size: 1.1vw;
+    height: 70px;
+
+  }
+  .profile_main_data div
+  {
+    padding: 0 20px;
+  }
+
+  .name input ,.gmaa input,.id-card input,.kolia input,.date input,.depart input,.gender input,.year input,.address input,.degree input ,.job input ,.status input,.diana input ,.smoking input,.sports input,.cooking input,.hoppies input,.mard input
+  {
+    font-size: 1.1vw;
+    height: 70px;
+
+  }
+  .profile
+  {
+    width: 83%;
+  }
+  .profile button , .profile-call button
+
+  {
+    font-size: 1.1vw;
+
+  }
+  .search_houses p
+  {
+    font-size:1.1vw;
+  }
+  .mobile1 img
+  {
+    height: 75px;
+    width: 75px;
+  }
+
+
+
+
+  }
+
+@media (min-width: 1200px) {
+
+  .name label ,.gmaa label,.id-card label,.kolia label,.date label,.depart label,.gender label,.year label,.address label,.degree label,.job label,.status label,.diana label,.smoking label,.sports label,.cooking label,.hoppies label,.mard label
+  {
+    font-size: 0.9vw;
+    height: 70px;
+
+  }
+  .profile_main_data div
+  {
+    padding: 0 20px;
+  }
+
+  .name input ,.gmaa input,.id-card input,.kolia input,.date input,.depart input,.gender input,.year input,.address input,.degree input ,.job input ,.status input,.diana input ,.smoking input,.sports input,.cooking input,.hoppies input,.mard input
+  {
+    font-size: 0.9vw;
+    height: 70px;
+
+  }
+  .profile
+  {
+    width: 96%;
+  }
+  .profile button , .profile-call button
+
+  {
+    font-size: 0.9vw;
+
+  }
+
+  .search_houses p
+  {
+    font-size:0.9vw;
+  }
+  .mobile1 img
+  {
+    height: 80px;
+    width: 80px;
+  }
+
+
+
+
+ }

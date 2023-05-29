@@ -1,0 +1,70 @@
+.nav_fixed
+{
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index:2;
+  height:88px;
+  background:red;
+}
+.navbar-collapse
+{
+  z-index: 2;
+  background: #f8f9fa;
+
+}
+.navbar-brand img
+{
+
+  height:70px;
+  width:70px
+}
+
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+  color: rgba(0,0,0,.9);
+  font-size: 20px;
+  margin-right: 1.6vw;
+}
+
+.navbar-toggler
+{
+  height:50px;
+  width:50px
+}
+.navbar-toggler span
+{
+  font-size: 20px;
+
+}
+
+.shape
+{
+    background: var(--color2);
+    position: absolute;
+    height: 158%;
+    width: 120%;
+    top: -10px;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.langu
+{
+  padding: 5px;
+  border: 0px solid;
+}
+
+@media (max-width:1200px)
+{
+  .shape
+  {
+    background: none;
+
+  }
+}

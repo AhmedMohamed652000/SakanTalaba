@@ -1,0 +1,865 @@
+
+<div  [style.display]="houses_data"  class="   profile   overflow-hidden ">
+
+  <p-scrollPanel  class=" p-0" [style]="{width: '100%', height: '100%'}">
+
+    <div class='filter center w-100 content mb-4   '>
+    <div class='w-100 center text-center p-0 m-0 '>
+
+     <p-dropdown [options]="langfun()?type_of_house_menu_ar:type_of_house_menu_en" optionLabel="word" optionValue="value"     placeholder=" {{'services.house.kind of search'|translate}}" #box4>
+    </p-dropdown>
+
+    <p-dropdown  [options]="langfun()?distance_of_college_menu_ar:distance_of_college_menu_en" optionLabel="word" optionValue="value"   placeholder=" {{'services.house.Away from college'|translate}} " #box3>
+    </p-dropdown>
+
+    <p-dropdown [options]="langfun()?Price_menu_ar:Price_menu_en"  placeholder="  {{'services.house.price'|translate}}"  optionLabel="word" optionValue="value"  #box2></p-dropdown>
+
+
+    <p-dropdown  [options]="langfun()?finishing_level_menu_ar:finishing_level_menu_en" optionLabel="word" optionValue="value"     #box1 placeholder="  {{'services.house.level of finishing'|translate}}">
+   </p-dropdown>
+
+    <button class="search" (click)=" box1.value != undefined ?  finishing_level=box1.value :  finishing_level='' "  (click)=" box2.value != undefined ?  price=box2.value :  price='' "  (click)=" box3.value != undefined ?  distance_of_college=box3.value :  distance_of_college='' "  (click)=" box4.value != undefined ?  type_of_house=box4.value :  type_of_house='' "   (click)="filter()"> {{'services.house.Search'|translate}}</button>
+
+      </div>
+  </div>
+
+
+
+  <div class="house_show m-auto center  ">
+    <div class='text-center   w-100 row m-' >
+
+    <div class="flat p-3 color2 col-7 offset-2 col-md-5  m-auto mb-5">
+      <p-galleria [value]="images2" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="5">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="'https://api.sakantalaba.live'+item" style="width: 100%; display: block;" />
+          </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+                <img [src]="'https://api.sakantalaba.live'+item" />
+            </div>
+        </ng-template>
+    </p-galleria>
+<div class="less_info d-flex justify-content-between">
+  <p class="">33  {{'services.house.L.E'| translate}}</p>
+  <p class="">55</p>
+</div>
+<div class="center text-center mb-3 w-100">
+<p-rating class="center text-center"  [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+</div>
+<div class="more w-100 center ">
+  <button (click)="more_details()"  >{{'services.house.More details'| translate}}</button>
+</div>
+    </div>
+
+  </div>
+  </div>
+
+
+  <p-scrollTop
+  target="parent"
+  styleClass="custom-scrolltop"
+  [threshold]="10"
+  icon="pi pi-arrow-up">
+  </p-scrollTop>
+  </p-scrollPanel>
+
+
+
+
+</div>
+
+
+
+
+
+<!-- ........................................................................................................................... -->
+
+<div *ngFor="let detail of one_pro"     class="  overflow-hidden container-fluied  details   profile  p-4 pt-2 row overflow-auto position-relative">
+  <!-- ................send request .................... -->
+
+  <form [formGroup]="requestform" >
+  <div class="container-fluied color2  profile p-4 " [style.display]='request_show'>
+    <div class="w-95   row from_to_full mx-auto">
+      <div class="center align-items-start col-4 row">
+        <span class="from center col-2 ">من</span>
+        <span class="from_profile col center">
+          <p-avatar   styleClass="mx-2 " size="xlarge" shape="circle"></p-avatar>
+          <span>  {{UserInfo?.name}}       </span>
+        </span>
+      </div>
+
+      <div class="center mx-1 col-4 row align-items-start  ">
+        <span class="from center col-2 ">إلي</span>
+        <span class="to_profile col center">
+          <p-avatar  [image]="'https://api.sakantalaba.live'+detail?.owner?.profile_photo" styleClass="mx-2 " size="xlarge" shape="circle"></p-avatar>
+          <span>  {{detail?.owner?.name}}        </span>
+        </span>
+      </div>
+
+
+      <div class="col mx-1 ">
+
+        <p-galleria [value]="detail.product_photo" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="5">
+          <ng-template pTemplate="item" let-item>
+              <img [src]="'https://api.sakantalaba.live'+item" style="width: 100%; display: block;" />
+            </ng-template>
+          <ng-template pTemplate="thumbnail" let-item>
+              <div class="grid grid-nogutter justify-content-center">
+                  <img [src]="'https://api.sakantalaba.live'+item" />
+              </div>
+          </ng-template>
+      </p-galleria>
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <div class=' w-100 mt-4 p-4 position-relative'>
+
+      <div class="num_person ">
+        <p-multiSelect [showToggleAll]="false" formControlName="friends_selection" [options]="friends" optionLabel="name" optionValue="friend_id" placeholder="اختر الاصدقاء" ></p-multiSelect>
+      </div>
+      <mat-form-field appearance="fill" class="filter2">
+        <mat-label> موعد معاينه</mat-label>
+        <mat-select #box4  formControlName="date1" >
+          <mat-option *ngFor="let date of detail.dates " value=' بوم :{{date.date1}}  : من  {{date.To1}} : الي  {{date.From1}}'   >{{ "بوم  " + date.date1 + ' من '+  date.To1  +" " +  date.From1  }}  </mat-option>
+          <mat-option *ngFor="let date of detail.dates " value=' بوم :{{date.date2}}  : من  {{date.To2}} : الي  {{date.From2}}'  >{{ "بوم  " + date.date2 + ' من '+  date.To2  +" " +  date.From2  }}</mat-option>
+          <mat-option *ngFor="let date of detail.dates " value=' بوم :{{date.date3}}  : من  {{date.To3}} : الي  {{date.From3}}' >{{ "بوم  " + date.date3 + ' من '+  date.To3 +" " +  date.From3 }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="seconed_time ">
+
+        <mat-form-field appearance="fill" class="filter2">
+          <mat-label> موعد بديل</mat-label>
+          <mat-select #box4 formControlName="date2"  >
+            <mat-option *ngFor="let date of detail.dates " value=' بوم :{{date.date1}}  : من  {{date.To1}} : الي  {{date.From1}}' >{{ "بوم  " + date.date1 + ' من '+  date.To1  +" " +  date.From1  }}</mat-option>
+            <mat-option *ngFor="let date of detail.dates " value=' بوم :{{date.date2}}  : من  {{date.To2}} : الي  {{date.From2}}' >{{ "بوم  " + date.date2 + ' من '+  date.To2  +" " +  date.From2  }}</mat-option>
+            <mat-option *ngFor="let date of detail.dates " value=' بوم :{{date.date3}}  : من  {{date.To3}} : الي  {{date.From3}}' >{{ "بوم  " + date.date3 + ' من '+  date.To3 +" " +  date.From3 }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        {{box4.value}}
+      </div>
+
+      <div class=" w-50 m-auto">
+
+
+        <button type="submit" (click)="request_product(requestform.value,detail.id)" label=" إرسال الطلب" class="p-button-outlined p-button-rounded button_send">إرسال الطلب</button>
+        <button  (click)="more_details_hidden()"   pButton pRipple type="button" label="رجوع" class="p-button-outlined p-button-rounded p-button-danger  button_send" style='    width: 120px;' ></button>
+      </div>
+
+
+    </div>
+
+
+
+
+    </div>
+</form>
+
+  <!-- ................send request .................... -->
+
+
+
+
+<div class="  container-fluied  details   profile  p-4 pt-2 row overflow-auto position-relative" [style.display]=" search_house_details">
+  <h2 class="w-50">{{'services.house.one house.housing owner'| translate}}</h2>   <h2 class="w-50">  {{'services.house.one house.Photo Gallery'| translate}}</h2>
+
+  <button (click)='search_house_details_fun()' pButton pRipple type="button" icon="pi pi-times" class=" mb-3    p-button-rounded close_button  text-dark color2"></button>
+
+
+
+
+
+  <div class=' col-7 owner color2 row p-4'>
+
+    <div class=" col-5 center">
+        <div class="">
+        <div class="center">
+        <p-avatar [image]="'https://api.sakantalaba.live'+detail.owner.profile_photo"  styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+      </div>
+        <div class="center mb-2"> <span>{{detail.owner.name}} </span></div>
+        <div class="center mb-3 w-100">
+          <p-rating class="" [ngModel]="detail.rate_of_owner" [readonly]="true" [stars]="5" [cancel]="false"></p-rating>
+          </div>      </div>
+  </div>
+    <div class=" col notic  h-100">
+      <div class="center"> <label > {{'services.house.one house.Notes'| translate}}</label></div>
+      <div class="center m-3"><span class="center">*</span><span class='px-2 center'> {{detail.description}}</span></div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class='show_vid col color2 center '>
+
+    <p-galleria [value]="detail.product_photo" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '660px'}" [numVisible]="5">
+      <ng-template pTemplate="item" let-item >
+          <img [src]="'https://api.sakantalaba.live'+item" />
+        </ng-template>
+      <ng-template pTemplate="thumbnail" let-item >
+          <div class="grid grid-nogutter justify-content-center">
+              <img [src]="'https://api.sakantalaba.live'+item"  />
+          </div>
+      </ng-template>
+  </p-galleria>
+
+  </div>
+
+
+  <div class="w-100 p-0 m-0">
+ <h1 >{{'services.house.one house.Description of accommodation'| translate}} </h1>
+
+
+    <div class='color2 p-3 m-0   servies_info w-100 row'>
+
+
+
+
+
+    <div class="main_info col-4">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Accommodation type'| translate}} </label>
+      <span [class.input_inverse]='!langfun()'  > {{detail.type_of_house}}</span>
+    </div>
+  </div>
+
+
+  <div class="main_info col-4">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center ">{{'services.house.one house.level of finishing'| translate}}  </label>
+      <span  [class.input_inverse]='!langfun()' > {{detail.finishing_level}}</span>
+    </div>
+  </div>
+
+
+  <div class="main_info col-4">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center ">{{'services.house.one house.Number of balconies'| translate}} </label>
+      <span  [class.input_inverse]='!langfun()' > {{detail.balcony}}</span>
+    </div>
+  </div>
+
+  <div class="main_info col-4 ">
+    <div class=" p-inputgroup gmaa mt-4">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.space'| translate}} </label>
+      <span  [class.input_inverse]='!langfun()' > {{detail.space}}</span>
+    </div>
+  </div>
+
+
+  <div class="main_info col-4 ">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.bathrooms'| translate}} </label>
+      <span  [class.input_inverse]='!langfun()' > {{detail.bathroom}}</span>
+    </div>
+  </div>
+
+    <div class="main_info ">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.floors'| translate}}  </label>
+      <span  [class.input_inverse]='!langfun()' > {{detail.Floors}}</span>
+    </div>
+  </div>
+
+
+
+  <div class="main_info">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Kitchen'| translate}} </label>
+      <span  [class.input_inverse]='!langfun()' > {{detail.kitchen}}</span>
+    </div>
+  </div>
+
+    <div class="main_info  ">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.paying'| translate}} </label>
+      <span  [class.input_inverse]='!langfun()' > {{detail.payment}}</span>
+    </div>
+  </div>
+
+    <div class="main_info description w-100">
+    <div class=" p-inputgroup gmaa mt-4  w-100">
+      <label [class.label_inverse]='!langfun()' class="color1 center ">{{'services.house.one house.description'| translate}}   </label>
+      <span [class.input_inverse]='!langfun()'  class=" w-100" > {{detail.slug}}</span>
+    </div>
+  </div>
+
+
+    <div class="main_info  ">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center ">  {{'services.house.one house.Away from college'| translate}}  </label>
+      <span [class.input_inverse]='!langfun()'  >{{detail.distance_of_college}}</span>
+    </div>
+  </div>
+
+  <div class="main_info">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.price'| translate}} </label>
+      <span [class.input_inverse]='!langfun()'  > {{detail.price}}</span>
+    </div>
+  </div>
+
+  <div class="main_info">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Evaluation'| translate}}  </label>
+      <span [class.input_inverse]='!langfun()'  > {{detail.rate_of_house}}</span>
+    </div>
+  </div>
+
+
+
+
+
+</div>
+
+<h1 >{{'services.house.one house.Available places'| translate}}</h1>
+
+
+<div class='color2 p-3 m-0  servies_info pt-5 pb-5'>
+
+  <div class="main_info">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.number of room'| translate}}  </label>
+      <span [class.input_inverse]='!langfun()'  >{{detail.number_of_rooms}}</span>
+    </div>
+  </div>
+
+
+  <div class="main_info">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Number of beds'| translate}}  </label>
+      <span [class.input_inverse]='!langfun()'  > {{detail.number_of_beds}}</span>
+    </div>
+  </div>
+
+
+
+  <div class="main_info">
+    <div class=" p-inputgroup gmaa mt-4 ">
+      <label [class.label_inverse]='!langfun()' class="color1 center ">{{'services.house.one house.number of people'| translate}}  </label>
+      <span [class.input_inverse]='!langfun()'  > {{detail.number_of_student_needed}}</span>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+<h1 >{{'services.house.one house.Services'| translate}}</h1>
+
+<div class='color2 p-3 m-0 pt-5 pb-5 servies_info'>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Water'| translate}}</label>
+    <span  [class.input_inverse]='!langfun()' > {{detail.water}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Gas'| translate}} </label>
+    <span  [class.input_inverse]='!langfun()' > {{detail.gas}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Electricity'| translate}}</label>
+    <span [class.input_inverse]='!langfun()'  > {{detail.electric}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Internet'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  > {{detail.internet}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.elevator'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  class='unavailabel' > {{detail.elevator}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center ">{{'services.house.one house.air conditioner'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  class='availabel' >{{detail.aircondition}}</span>
+  </div>
+</div>
+
+</div>
+<hr class="mt-5">
+
+  <h1>{{'services.house.one house.devices'| translate}}</h1>
+
+
+  <div class='color2 pt-5 pb-5 p-3 m-0 servies_info'>
+
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.washing machine'| translate}}</label>
+    <span [class.input_inverse]='!langfun()'  > {{detail.Washing_Machine}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.TV'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  > {{detail.Tv}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.refrigerator'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  >{{detail.refrigerator}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.heater'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  class='availabel' >{{detail.heater}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.fan'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  > {{detail.fan}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Water filter'| translate}}  </label>
+    <span [class.input_inverse]='!langfun()'  class='availabel' >{{detail.water_filter}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.radio'| translate}} </label>
+    <span  [class.input_inverse]='!langfun()' > {{detail.radio}}</span>
+  </div>
+</div>
+
+<div class="main_info">
+  <div class=" p-inputgroup gmaa mt-4 ">
+    <label [class.label_inverse]='!langfun()' class="color1 center "> {{'services.house.one house.Play Station'| translate}} </label>
+    <span [class.input_inverse]='!langfun()'  class='availabel' >{{detail.playstation}}</span>
+  </div>
+</div>
+  </div>
+
+  </div>
+
+
+
+  <button class="button_smawy "  (click)='request_show_fun()' >{{'services.house.one house.Request for inspection'| translate}}  </button>
+  <div class="center">
+    <button (click)='search_house_details_fun()' pButton pRipple type="button" label="{{'services.house.one house.back'| translate}}" class="p-button-outlined p-button-rounded p-button-danger mt-3 w-25"></button>
+  </div>
+</div>
+  </div>
+
+
+
+<!-- ............................................................................................................................................ -->
+
+
+  <div class="  p-0 pt-5" style="width: '100%'; height: '100% ' " [style.display]="houses_map">
+
+          <div class=' center w-100 content mt-3 mb-3 h-10   '>
+          <div class='w-100 center text-center filter p-0 m-0 mb-5  '>
+
+            <p-dropdown [options]="langfun()?type_of_house_menu_ar:type_of_house_menu_en" optionLabel="word" optionValue="value"     placeholder=" {{'services.house.kind of search'|translate}}" #box4>
+            </p-dropdown>
+
+            <p-dropdown  [options]="langfun()?distance_of_college_menu_ar:distance_of_college_menu_en" optionLabel="word" optionValue="value"   placeholder=" {{'services.house.Away from college'|translate}} " #box3>
+            </p-dropdown>
+
+            <p-dropdown [options]="langfun()?Price_menu_ar:Price_menu_en"  placeholder="  {{'services.house.price'|translate}}"  optionLabel="word" optionValue="value"  #box2></p-dropdown>
+
+
+            <p-dropdown  [options]="langfun()?finishing_level_menu_ar:finishing_level_menu_en" optionLabel="word" optionValue="value"     #box1 placeholder="  {{'services.house.level of finishing'|translate}}">
+           </p-dropdown>
+
+            <button class="search" (click)=" box1.value != undefined ?  finishing_level=box1.value :  finishing_level='' "  (click)=" box2.value != undefined ?  price=box2.value :  price='' "  (click)=" box3.value != undefined ?  distance_of_college=box3.value :  distance_of_college='' "  (click)=" box4.value != undefined ?  type_of_house=box4.value :  type_of_house='' "   (click)="filter()"> {{'services.house.Search'|translate}}</button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+  <div #map id="map" class="map" style='height:85% !important' >
+
+
+    <agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      [disableDefaultUI]="false"
+      [zoomControl]="false"
+      >
+    <div class="" *ngFor="let m of markers; let i = index">
+      <agm-marker
+
+          (markerClick)="info($event)"
+          [latitude]="m.lat"
+          [longitude]="m.lng"
+          [label]="m.label"
+
+          [markerDraggable]="m.draggable"
+          >
+
+
+
+        <agm-info-window>
+          <strong>InfoWindow content</strong>
+        </agm-info-window>
+
+      </agm-marker>
+    </div>
+    <agm-direction
+    [renderOptions]="renderOptions"
+
+    [travelMode]="travelMode"
+    [origin] = "origin"
+    [destination] = "destination">
+    </agm-direction>
+    </agm-map>
+
+
+  </div>
+  </div>
+
+
+  <p-scrollPanel  [style.display]="houses_requests " class="    p-0" style="width: '100%'; height: '100%'">
+    <div class=" w-100   h-100">
+
+<!-- .........................................................................    -->
+
+      <div class="w-100 center">
+        <div class=" w-75  center ">
+          <div  class="requests w-50 center" (click)="wait_request_fun()" class="col center requests" [style.background]="wait_request_color" [style.color]="wait_request_color2">{{'services.house.Inspection requests.Waiting for approval' | translate}}</div>
+          <div class=" requests w-50 center" (click)="accept_request_fun()" class="col center requests" [style.background]="accept_request_color" [style.color]="accept_request_color2"> {{'services.house.Inspection requests.Been approved' | translate}}</div>
+          <div class=" requests w-50 center" (click)="accept_mohayna_fun()" class="col center requests" [style.background]="accept_mohayna_color" [style.color]="accept_mohayna_color2"> {{'services.house.Inspection requests.Checked' | translate}} </div>
+        </div>
+      </div>
+
+<!-- ............................................................ -->
+<div class="" *ngFor=" let talabat of talabatOfstudent?.data1">
+
+      <div [style.display]="accept" class="" *ngIf=" ((talabat.status == 1  && talabat.RentStatus !=2 && talabat.RentStatus !=1 && (talabat.RentStatus == null || talabat.RentStatus != 4 )))"    >
+
+      <div class="structure_back2 position-relative box">
+
+        <div class="structure_back position-absolute h-100 w-100  m-auto face front">
+            <div class=' center front h-100 w-100'>
+              <div class="structure center p-4">
+                <div class=" w-100 h-100 p-inputgroup row">
+                    <span class="col-2  center h-100">
+                      <img src="../../assets/image/flat2.jpeg" style="cursor:pointer" class="img-fluid h-100" (click)="displayBasic2 = true" alt="">
+                    </span>
+
+                    <span class="center  col h-100 row justify-content-between">
+                    <span class=" h-100 col-3  center justify-content-start">
+                      <div class=" name_profile  ">
+                        <p class="onwer m-0"> {{talabat.name}}</p>
+                        <div class=""><a href=""> {{'services.house.Inspection requests.Contact Data' | translate}} </a></div>
+                    </div>
+                    </span>
+
+                    <span class="col h-100  center justify-content-between row">
+
+                      <div class='col wait_button1' (click)="talabat_mohaina_satatus1(talabat.id)"> تمت المعاينة  </div>
+                      <div class='col wait_button2'>  في انتظار المعاينة   </div>
+                      <div class='col wait_button3'(click)="talabat_mohaina_satatus4(talabat.id)"> إلغاء المعاينة  </div>
+                    </span>
+                  </span>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="structure_back position-absolute h-100   m-auto w-100  face back">
+          <div class='h-100 w-100 center back'>
+            <div class="structure center p-4">
+              <div class=" w-100 h-100 p-inputgroup row">
+                  <span class="col-2 center">
+                    <p-avatar image="../../assets/image/male_man_boy_black_tone_avatar_people_person_icon_159369.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+                  </span>
+
+                  <span class="center col row justify-content-between">
+                  <span class=" h-100 col-3 center justify-content-start">
+                    <div class=" name_profile name_profile2">
+                    <p class="m-0 onwer">أحمد محمد محمد</p>
+                    <a href=""> {{'services.house.Inspection requests.View profile' | translate}}</a>
+                  </div>
+                  </span>
+
+                  <span class="col center justify-content-between">
+                    <p-avatar image="../../assets/image/WhatsApp_icon.png" styleClass="mr-2 cc" size="xlarge "></p-avatar>
+                    <p-avatar image="../../assets/image/messenger.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+                    <p-avatar image="../../assets/image/phone.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+                    <p-avatar image="../../assets/image/delete.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+                  </span>
+                </span>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+<!-- ........................................................ -->
+
+      <div [style.display]="wait" class="" *ngIf=" talabat.status == null && talabat.RentStatus == null" >
+
+
+      <div class='structure_back center  '>
+        <div class="structure center p-4">
+          <div class=" w-100 h-100 p-inputgroup row">
+              <span class="col-2  center h-100">
+                <img src="../../assets/image/flat2.jpeg" style="cursor:pointer" class="img-fluid h-100" (click)="displayBasic2 = true" alt="">
+              </span>
+
+              <span class="center  col h-100 row justify-content-between">
+              <span class=" h-100 col-3  center justify-content-start">
+                <div class=" name_profile center">
+                  <a href='' class="onwer">{{talabat.name}} </a>
+              </div>
+              </span>
+
+              <span class="col h-100  center justify-content-between row">
+
+                <div class='col wait_button1'  >  {{'services.house.Inspection requests.Amend the request' | translate}}</div>
+                <div class='col wait_button3' (click)="talabat_mohaina_satatus2(talabat.id)"> {{'services.house.Inspection requests.cancel sending the request' | translate}}  </div>
+              </span>
+            </span>
+            </div>
+        </div>
+      </div>
+
+      </div>
+
+<!-- ........................................................................ -->
+
+
+<div [style.display]="accept_mohaina" class="" *ngIf=" talabat.RentStatus == 1 "   >
+
+  <div class="structure_back2 position-relative box">
+
+    <div class="structure_back position-absolute h-100 w-100 m-auto  face front ">
+        <div class=' center front h-100 w-100'>
+          <div class="structure center p-4">
+            <div class=" w-100 h-100 p-inputgroup row">
+                <span class="col-2  center h-100">
+                  <img src="../../assets/image/flat2.jpeg" style="cursor:pointer" class="img-fluid h-100" (click)="displayBasic2 = true" alt="">
+                </span>
+
+                <span class="center  col h-100 row justify-content-between">
+                <span class=" h-100 col-3  center justify-content-start">
+                  <div class=" name_profile   ">
+                    <p class="onwer m-0">أحمد محمد محمد </p>
+                    <div class=""><a href="">{{'services.house.Inspection requests.Contact Data' | translate}}</a></div>
+                </div>
+                </span>
+
+                <span class="col h-100  center justify-content-between row">
+
+                  <div class='col wait_button1'>  {{'services.house.Inspection requests.residential' | translate}} </div>
+                  <div class='col wait_button3' (click)="talabat_mohaina_satatus2(talabat.id)"> {{'services.house.Inspection requests.Cancel' | translate}}  </div>
+                </span>
+              </span>
+              </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="structure_back position-absolute h-100 m-auto   w-100 face back">
+      <div class='h-100 w-100 center back'>
+        <div class="structure center p-4">
+          <div class=" w-100 h-100 p-inputgroup row">
+              <span class="col-2 center">
+                <p-avatar image="../../assets/image/male_man_boy_black_tone_avatar_people_person_icon_159369.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+              </span>
+
+              <span class="center col row justify-content-between">
+              <span class=" h-100 col-3 center justify-content-start">
+                <div class=" name_profile name_profile2">
+                <p class="m-0 ">أحمد محمد محمد</p>
+                <a href="">{{'services.house.Inspection requests.View profile' | translate}}</a>
+              </div>
+              </span>
+
+              <span class="col center justify-content-between">
+                <p-avatar image="../../assets/image/WhatsApp_icon.png" styleClass="mr-2 cc" size="xlarge "></p-avatar>
+                <p-avatar image="../../assets/image/messenger.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+                <p-avatar image="../../assets/image/phone.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+                <p-avatar image="../../assets/image/delete.png" styleClass="mr-2 cc" size="xlarge"></p-avatar>
+              </span>
+            </span>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+
+
+</div>
+<!-- ........................................................................ -->
+<!-- ............................  سكني  ...................................... -->
+
+<!-- ........................................................................ -->
+    </div>
+  </p-scrollPanel>
+
+<!-- .................................. send reques to owner ........................................... -->
+
+
+
+
+
+<!-- .................................. send reques to owner ........................................... -->
+
+
+
+
+
+  <p-galleria [value]="images2" [visible]="displayBasic2" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '850px'}" [numVisible]="7"
+  [circular]="true" [fullScreen]="true" [showItemNavigators]="true" [showThumbnails]="false" [baseZIndex]="100000">
+  <ng-template pTemplate="item" let-item>
+      <img [src]="item" style="width: 100%; display: block;"/>
+  </ng-template>
+  <ng-template pTemplate="thumbnail" let-item>
+      <div class="grid grid-nogutter justify-content-center">
+          <img [src]="item" style="display: block;"/>
+      </div>
+  </ng-template>
+</p-galleria>
+
+
+
+<!-- ......................................سكني............................... -->
+
+
+<div class=" w-100 h-100 p-3 m-0 my_house" [style.display]="my_house">
+
+  <div class="" *ngFor="let studentS of talabatOfstudent?.data1">
+
+    <div class="">
+        <div class="row w-100 one_member_rate  p-0 m-0 ">
+
+
+          <div class="col-7 pt-4  h-100   row right  d-block overflow-auto m-0  " style="    height: 525px !important;">
+
+            <h3 class="text-center mb-3">{{'services.house.residential.Your friends at home' | translate}}</h3>
+                <div class="col-12  hightt row mx-auto mb-3   " *ngFor="let student of  studentS?.friends">
+                          <div class="one_friend center hightt col-7">
+                            <div class='one_member center p-0 justify-content-start h-100 w-100'>
+                              <p-avatar [image]="'https://api.sakantalaba.live'+student.profile_photo" styleClass=" p-3" shape="circle"></p-avatar>
+                              <span class="center">{{student.name}}</span>
+                            </div>
+                          </div>
+
+                          <div class="col-5  hightt center h-100  ">
+                              <form [formGroup]="raingform" class="bg-white w-100 h-100 center   pt-3 pb-3 rounded-pill" >
+                                <p-rating class="h-100 w-100 center" formControlName="stars_rated" (click)="add_rating_users_fun(raingform.value,student.id)" ngModel="2.2" #vale  [stars]="5"  [cancel]="false"></p-rating>
+                                {{vale.value}}
+                              </form>
+                          </div>
+              </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+          <div class="col pt-4 mx-3   ">
+
+            <p-galleria class='gallery' [value]="studentS.product_photo" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+              <ng-template pTemplate="item" let-item>
+                  <img [src]="item" style= "height:230px; width: 100%;" />
+              </ng-template>
+              <ng-template pTemplate="thumbnail" let-item>
+                  <div class="grid grid-nogutter justify-content-center">
+                      <img [src]="item" />
+                  </div>
+              </ng-template>
+          </p-galleria>
+
+          <div class="  d-flex justify-content-center align-items-center mt-3">
+            <div class="bg-white w-100 h-100 center  pt-3 pb-3 rounded-pill">
+              <p-rating class="h-100 w-100 center" ngModel="2"  [stars]="5"  [cancel]="false"></p-rating>
+            </div>
+          </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class=" row d-inline-block  w-70 mt-3 p-2 m-0">
+
+          <div class="col-12  hightt row  mb-3   ">
+
+            <div class="one_friend center hightt col-7">
+              <div class='one_member center p-0 justify-content-start h-100 w-100 p-2'>
+                <div class=" bg-gradientc p-1">    {{'services.house.residential.housing owner' | translate}}      </div>
+                <p-avatar image="../../../../assets/image/facebook-icon.png" styleClass=" p-3" shape="circle"></p-avatar>
+                <span class="center">احمد خالد علي</span>
+              </div>
+            </div>
+
+            <div class="col-5  hightt center h-100  ">
+                <div class="bg-white w-100 h-100 center  pt-3 pb-3 rounded-pill">
+                  <p-rating class="h-100 w-100 center" ngModel="2"  [stars]="5"  [cancel]="false"></p-rating>
+                </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+</div>
