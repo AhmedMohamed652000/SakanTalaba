@@ -1,6 +1,6 @@
 # Project
-how to add image to readme file in github
-!(my_image.png)](https://github.com/AhmedMohamed652000/SakanTalaba/blob/main/images/292237312_586167243073447_1850050293255354480_n.png)
+this some images of website
+!(my_image.png)](https://github.com/AhmedMohamed652000/SakanTalaba/blob/main/images)
 
 ## Development server
 
