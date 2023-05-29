@@ -1,6 +1,6 @@
 # Project
-https://github.com/AhmedMohamed652000/SakanTalaba/blob/main/image.jpg?raw=true
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.11.
+how to add image to readme file in github
+!(my_image.png)](https://github.com/AhmedMohamed652000/SakanTalaba/blob/main/images/292237312_586167243073447_1850050293255354480_n.png)
 
 ## Development server
 
